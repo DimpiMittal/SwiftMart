@@ -26,9 +26,9 @@ MySQL
 
 ## 📌 Features
 
-✅ User authentication & authorization (Login/Signup)
-✅ Product catalog with categories
-✅ Shopping cart functionality
-✅ Order placement and checkout
-✅ Dynamic product filtering and search
-✅ Responsive design for all devices
+- ✅ User authentication & authorization (Login/Signup)
+- ✅ Product catalog with categories
+- ✅ Shopping cart functionality
+- ✅ Order placement and checkout
+- ✅ Dynamic product filtering and search
+- ✅ Responsive design for all devices
