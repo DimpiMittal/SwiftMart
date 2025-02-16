@@ -1,10 +1,10 @@
-SwiftMart - E-commerce Platform
+# SwiftMart - E-commerce Platform
 
-🛍️ About SwiftMart
+## 🛍️ About SwiftMart
 
 SwiftMart is a fully functional e-commerce web application designed for seamless online shopping. It features a user-friendly interface, a robust backend, and secure data handling.
 
-🚀 Tech Stack
+### 🚀 Tech Stack
 
 Frontend
 
@@ -14,17 +14,17 @@ CSS
 
 JavaScript
 
-Backend
+### Backend
 
 Django (Python Framework)
 
 Python
 
-Database
+### Database
 
 MySQL
 
-📌 Features
+## 📌 Features
 
 ✅ User authentication & authorization (Login/Signup)
 ✅ Product catalog with categories
