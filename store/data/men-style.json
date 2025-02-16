@@ -1,0 +1,115 @@
+{
+    "source_file": "men-style.html",
+    "products": [
+        {
+            "id": 1,
+            "image": "store/images/mens_jacket.jpeg",
+            "name": "Classic Cream Denim Jacket",
+            "brand": "Brand Name",
+            "description": "Stylish jacket for a casual look.",
+            "price": 30.00,
+            "discount": "15% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 2,
+            "image": "store/images/mens_shirt.jpeg",
+            "name": "Purple Shirt",
+            "brand": "Brand Name",
+            "description": "Classic shirt for daily wear.",
+            "price": 45.00,
+            "discount": "10% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 3,
+            "image": "store/images/mens_jacket2.jpeg",
+            "name": "Gant Men Embroidered High Neck Full Sleeves Jacket",
+            "brand": "Brand Name",
+            "description": "Comfortable jacket for all seasons.",
+            "price": 25.00,
+            "discount": "20% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 4,
+            "image": "store/images/mens_jeans2.jpeg",
+            "name": "Black and Grey Jeans",
+            "brand": "Brand Name",
+            "description": "Stylish jeans for casual outings.",
+            "price": 60.00,
+            "discount": "5% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 5,
+            "image": "store/images/mens_shirt2.jpeg",
+            "name": "Pinkish and White Shade Shirt",
+            "brand": "Brand Name",
+            "description": "Elegant shirt for formal occasions.",
+            "price": 50.00,
+            "discount": "10% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 6,
+            "image": "store/images/mens_jeans.jpeg",
+            "name": "Blue Loose Fit Baggy Jeans",
+            "brand": "Brand Name",
+            "description": "Comfortable baggy jeans for everyday wear.",
+            "price": 40.00,
+            "discount": "25% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 7,
+            "image": "store/images/mens_shirt3.jpeg",
+            "name": "Classic Black, White, and Brown Shirt",
+            "brand": "Brand Name",
+            "description": "Attractive shirt for casual outings.",
+            "price": 20.00,
+            "discount": "10% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 8,
+            "image": "store/images/mens_t-shirt.jpeg",
+            "name": "4 Pairs of Daily Wear T-Shirts",
+            "brand": "Brand Name",
+            "description": "Simple and comfortable T-shirts for daily use.",
+            "price": 15.00,
+            "discount": "5% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 9,
+            "image": "store/images/mens_t-shirt2.jpeg",
+            "name": "Light Grey Shirt with Black Collar",
+            "brand": "Brand Name",
+            "description": "Stylish shirt for a trendy look.",
+            "price": 80.00,
+            "discount": "10% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 10,
+            "image": "store/images/mens_t-shirt3.jpeg",
+            "name": "V-Shape Dark Grey and Black Shirt",
+            "brand": "Brand Name",
+            "description": "Modern shirt for casual outings.",
+            "price": 15.00,
+            "discount": "20% Off",
+            "free_delivery": true
+        },
+        {
+            "id": 11,
+            "image": "store/images/men_jeans.jpg",
+            "name": "Black and Light Grey Fitted Jeans",
+            "brand": "Brand Name",
+            "description": "Trendy jeans for a sporty look.",
+            "price": 12.00,
+            "discount": "15% Off",
+            "free_delivery": true
+        }
+    ]
+}

@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Categories</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+
+    <style>
+        /* General Reset for Body */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between; /* Space between brand and nav items */
+    align-items: center;
+    background-color: black;
+    padding: 15px 35px;  /* Add some padding for spacing */
+    color: white;
+}
+
+.brand-name {
+    font-size: 4em;
+    font-weight: bold;
+    color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+    animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Style the page heading */
+.page-heading {
+    font-size: 2.6em; /* Larger font size */
+    font-family: 'Georgia', serif; /* A unique font for style */
+    font-weight: bold;
+    text-align: center;
+    color:rgb(47, 10, 58); /* Dark color for the text */
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+/* Create the animation for individual words */
+.page-heading span {
+    display: inline-block;
+    opacity: 0;
+    animation: reveal 1s forwards;
+    animation-delay: var(--delay); /* Delay for each word */
+}
+
+/* Animation keyframes */
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starting position for animation */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position for animation */
+    }
+}
+
+/* Add delay for each word */
+.page-heading span:nth-child(1) {
+    --delay: 0s;
+}
+
+.page-heading span:nth-child(2) {
+    --delay: 0.3s;
+}
+
+.page-heading span:nth-child(3) {
+    --delay: 0.6s;
+}
+
+.page-heading span:nth-child(4) {
+    --delay: 0.9s;
+}
+
+.page-heading span:nth-child(5) {
+    --delay: 1.2s;
+}
+
+.page-heading span:nth-child(6) {
+    --delay: 1.5s;
+}
+
+.page-heading span:nth-child(7) {
+    --delay: 1.8s;
+}
+
+
+
+
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 2fr)); /* Adjust box size */
+    gap: 20px;
+    max-width: 1200px; /* Increase max width to allow the grid to spread more */
+    margin: 0 auto;
+}
+
+.category-box {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    padding-top: 100%; /* To keep the box square */
+}
+
+.category-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Adjusted to ensure image fully covers the square box */
+    object-fit: cover;
+}
+
+
+.category-box h2 {
+    font-size: 1.2em; /* Smaller font size */
+    margin: 10px 0;
+    color:rgb(255, 247, 25);
+    position: absolute;
+    bottom: 60px; /* Positioning the text inside the box */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.view-all-btn {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    position: absolute;
+    bottom: 20px; /* Place button inside the box */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.view-all-btn:hover {
+    background-color: #f1c40f;
+    color: #2c3e50;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+        
+    </header>
+     <br><br>
+     <br><br>
+    <!-- Main Content -->
+    <main class="categories-page">
+        <h1 class="page-heading">
+            <span>Top</span>
+            <span>Categories</span>
+            <span>to</span>
+            <span>Choose</span>
+            <span>From</span>
+        </h1>
+        <br><br>
+        <div class="categories-container">
+            <!-- Women's Section -->
+            <div class="category-box">
+                <img src="{% static 'store/images/Women-style.jpg' %}" alt="Women's Section">
+                <h2>Women's Section</h2>
+                <a href="{% url 'women-style' %}" class="view-all-btn">View All</a>
+            </div>
+            
+            <!-- Men's Section -->
+            <div class="category-box">
+                <img src="{% static 'store/images/men-style.jpeg' %}" alt="Men's Section">
+                <h2>Men's Section</h2>
+                <a href="{% url 'men-style' %}" class="view-all-btn">View All</a>
+            </div>
+            
+            <!-- Kids Section -->
+            <div class="category-box">
+                <img src="{% static 'store/images/kids-style.jpeg' %}" alt="Kids Section">
+                <h2>Kids Section</h2>
+                <a href="{% url 'kids-style' %}" class="view-all-btn">View All</a>
+            </div>
+            
+            <!-- New Styles -->
+            <div class="category-box">
+                <img src="{% static 'store/images/New-style.jpeg' %}" alt="New Styles">
+                <h2>New Styles</h2>
+                <a href="{% url 'new-style' %}" class="view-all-btn">View All</a>
+            </div>
+            
+            <!-- Essentials -->
+            <div class="category-box">
+                <img src="{% static 'store/images/Essentials.jpeg' %}" alt="Essentials">
+                <h2>Essentials</h2>
+                <a href="{% url 'utensils' %}" class="view-all-btn">View All</a>
+            </div>
+        </div>
+        
+        
+    </main>
+</body>
+</html>

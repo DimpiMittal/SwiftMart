@@ -1,0 +1,123 @@
+[
+    {
+        "id": 1,
+        "category": "Women",
+        "name": "Black and White Top with Red Flowers",
+        "image": "store/images/girls_top.jpg",
+        "description": "A stylish top with black and white small straight lines and small red flowers, perfect for casual outings.",
+        "price": 3700,
+        "discount": 10,
+        "sizes": ["S", "M", "L"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+
+    },
+    {
+        "id": 2,
+        "category": "Women",
+        "name": "Black and White Smile Top",
+        "image": "store/images/girls_top2.jpg",
+        "description": "A black and white top with 'Smile' written on it, perfect for a cheerful look.",
+        "price": 2200,
+        "discount": 15,
+        "sizes": ["S", "M", "L", "XL"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 3,
+        "category": "Women",
+        "name": "Black Leather Jacket",
+        "image": "store/images/girls_jeans.jpg",
+        "description": "A premium black leather jacket from Zara, ideal for denim lovers.",
+        "price": 3300,
+        "discount": 5,
+        "sizes": ["S", "M", "L"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 4,
+        "category": "Women",
+        "name": "Light Blue Baggy Jeans",
+        "image": "store/images/girls_jeans2.jpeg",
+        "description": "Light blue baggy jeans with cuts at the knees for a trendy look.",
+        "price": 5000,
+        "discount": 20,
+        "sizes": ["M", "L", "XL"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 5,
+        "category": "Women",
+        "name": "Elegant Black Frock",
+        "image": "store/images/girls_onePiece.jpeg",
+        "description": "A small and attractive black frock, perfect for parties and special occasions.",
+        "price": 8800,
+        "discount": 10,
+        "sizes": ["S", "M", "L", "XL"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 6,
+        "category": "Women",
+        "name": "Silver and Skin Color Party Wear Saree",
+        "image": "store/images/girls_saree.jpeg",
+        "description": "A silver shining saree with skin color and frills, ideal for parties.",
+        "price": 3200,
+        "discount": 25,
+        "sizes": ["Free Size"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 7,
+        "category": "Women",
+        "name": "Elegant Orange Saree",
+        "image": "store/images/girls_saree2.jpeg",
+        "description": "An elegant orange saree, perfect for festive and traditional occasions.",
+        "price": 4500,
+        "discount": 15,
+        "sizes": ["Free Size"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 8,
+        "category": "Women",
+        "name": "Black Lehenga with Rajasthani Work",
+        "image": "store/images/girls_traditional.jpg",
+        "description": "A black lehenga with intricate Rajasthani work, ideal for weddings and traditional functions.",
+        "price": 2900,
+        "discount": 5,
+        "sizes": ["Free Size"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 9,
+        "category": "Women",
+        "name": "Cream Business Formal Dress",
+        "image": "store/images/girls_formal.jpeg",
+        "description": "A cream-colored formal business dress with a jacket and full-length pants.",
+        "price": 4100,
+        "discount": 10,
+        "sizes": ["S", "M", "L", "XL"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    },
+    {
+        "id": 10,
+        "category": "Women",
+        "name": "Maroon One-Piece",
+        "image": "store/images/girls_gown.jpeg",
+        "description": "A luxurious maroon one-piece dress, perfect for evening wear and parties.",
+        "price": 2000,
+        "discount": 10,
+        "sizes": ["S", "M", "L", "XL"],
+        "free_delivery": true,
+        "source_file": "women-style.html"
+    }
+]

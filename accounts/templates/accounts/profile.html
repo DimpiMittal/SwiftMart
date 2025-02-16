@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftMart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color:  #dcd1a5;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;
+            color: white;
+        }
+
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-icon {
+            width: 70px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .search-bar {
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #ff9800;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-container {
+            max-width: 1000px;
+            margin: 70px auto;
+            padding: 80px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            margin: 0;
+        }
+
+        .user-details {
+            margin-bottom: 20px;
+        }
+
+        .user-details h2 {
+            margin: 10px 0;
+        }
+
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .user-info div {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .user-info span {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .edit-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .save-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .save-btn:hover {
+            background-color: #218838;
+        }
+
+        .sections {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .section-box {
+            width: 30%;
+            padding: 20px;
+            background-color: #f7d7d7;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: all 0.3s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .section-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logout-btn {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            background-color: #dc3545;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 20px auto;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+
+        .edit-form {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .edit-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .edit-form {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+        }
+        .save-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .save-btn:hover {
+            background-color: #45a049;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">SwiftMart</div>
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon">
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon">
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon">
+            </a>
+        </nav>
+    </header>
+    
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Welcome, <span id="userName">{{ user.username }}</span>!</h1>
+        </div>
+    
+        <div class="user-details">
+            <div class="user-info">
+                <div>Email:</div>
+                <div id="userEmail">{{ user.email }}</div>
+            </div>
+            <div class="user-info">
+                <div>Phone:</div>
+                <div id="userPhone">{{ user.profile.phone }}</div>
+            </div>
+            <div class="user-info">
+                <div>Address:</div>
+                <div id="userAddress">{{ user.profile.address }}</div>
+            </div>
+            <button class="edit-btn" id="editButton" onclick="toggleEditForm()">Edit</button>
+        </div>
+    
+        <div class="edit-form" id="editForm">
+            <form method="post" action="{% url 'update_profile' %}">
+                {% csrf_token %}
+                <input type="email" name="email" id="editEmail" placeholder="Edit Email" value="{{ user.email }}">
+                <input type="text" name="phone" id="editPhone" placeholder="Edit Phone Number" value="{{ user.profile.phone|default:'' }}">
+                <input type="text" name="address" id="editAddress" placeholder="Edit Address" value="{{ user.profile.address|default:'' }}">
+                <button class="save-btn" type="submit">Save Changes</button>
+            </form>
+        </div>
+        
+    
+        <div class="sections">
+            <div class="section-box">
+                <h3>Your Orders</h3>
+                <p>View your past orders</p>
+            </div>
+            <div class="section-box">
+                <h3>Manage Account</h3>
+                <p>Change your account settings</p>
+            </div>
+            <div class="section-box">
+                <h3>Security</h3>
+                <p>Manage your security settings</p>
+            </div>
+        </div>
+    
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="logout-btn" type="submit">Logout</button>
+        </form>
+    </div>
+    
+    <script>
+       
+        document.getElementById('editButton').addEventListener('click', function() {
+            document.getElementById('editForm').style.display = "block";
+            this.style.display = "none"; // Hide "Edit" button
+        });
+        
+        document.getElementById('saveButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default form submission
+        
+            // Get new values
+            const newEmail = document.getElementById('editEmail').value;
+            const newPhone = document.getElementById('editPhone').value;
+            const newAddress = document.getElementById('editAddress').value;
+        
+            // Update UI instantly
+            document.getElementById('userEmail').innerText = newEmail;
+            document.getElementById('userPhone').innerText = newPhone;
+            document.getElementById('userAddress').innerText = newAddress;
+        
+            // Hide edit form and show "Edit" button again
+            document.getElementById('editForm').style.display = "none";
+            document.getElementById('editButton').style.display = "block";
+        
+            // Submit the form to save changes in the database
+            document.getElementById('editForm').submit();
+        });
+        
+        
+    </script>
+    

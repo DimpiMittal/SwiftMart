@@ -1,0 +1,384 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Style - SwiftMart</title>
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+    <style>
+        /* General Reset for Body */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd1a5;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            gap: 20px;  /* Space out the items */
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 5px;  /* Space between text and icons */
+        }
+        
+        .nav-icon {
+            width: 70px;  /* Small icon size */
+            height: 50px;
+            object-fit: cover;
+        }
+        
+        .search-bar {
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        
+        .search-bar:focus {
+            outline: none;
+            border-color: #ff9800;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        
+        /* Additional Fashion Navigation */
+        .fashion-nav {
+            background-color:rgb(209, 205, 205); /* Light background color */
+            padding: 20px 0; /* Top and bottom padding */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for visual separation */
+        }
+        
+        .fashion-nav ul {
+            list-style-type: none; /* Remove default list bullets */
+            display: flex; /* Flexbox layout to align items in a row */
+            justify-content: center; /* Center-align the links */
+            gap: 20px; /* Space between each link */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .fashion-nav a {
+            color: #333; /* Dark text color */
+            text-decoration: none; /* Remove underline */
+            font-size: 18px; /* Set font size */
+            font-weight: bold; /* Make the font bold */
+            padding: 10px 15px; /* Add some padding around the link */
+            border-radius: 5px; /* Round the corners of the links */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+        }
+        
+        .fashion-nav a:hover {
+            background-color: #f4a261; /* Light orange background on hover */
+            color: white; /* White text on hover */
+        }
+        
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .fashion-nav ul {
+                flex-direction: column; /* Stack links vertically on smaller screens */
+                align-items: center; /* Center-align links */
+            }
+        
+            .fashion-nav a {
+                font-size: 16px; /* Slightly smaller text on mobile */
+                padding: 12px 20px; /* Adjust padding for better spacing */
+            }
+        }
+        
+        
+        /* Women's Section Content */
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 280px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product-card p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .price {
+            font-size: 16px;
+            color: #e76f51;
+            font-weight: bold;
+        }
+        
+        .discount {
+            color: #2a9d8f;
+        }
+        
+        .free-delivery {
+            color: #6c757d;
+        }
+        
+        .add-to-cart-btn {
+            background-color:rgb(8, 166, 210);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 8px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color:rgb(13, 98, 234);
+        }
+        
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .fashion-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .product-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .product-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon">
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon">
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon">
+            </a>
+        </nav>
+    </header>
+
+    <!-- Additional Fashion Navigation -->
+    <nav class="fashion-nav">
+        <ul>
+            <a href="{% url 'women-style' %}">Women's Style</a>
+            <a href="{% url 'men-style' %}">Men's Style</a>
+            <a href="{% url 'kids-style' %}">Kids' Style</a>
+            <a href="{% url 'new-style' %}">Accessories</a>
+            <a href="{% url 'utensils' %}">Kitchen-Appliances</a>
+            
+        </ul>
+    </nav>
+
+    <!-- Women's Section Content -->
+<div class="product-list">
+    
+    <!-- Example Product Card 1 -->
+    <div class="product-card">
+        <img src="{% static 'store/images/kids-cloth.jpeg' %}" alt="Product 1">
+        <h3>Product Name 1</h3>
+        <p>Brand: Brand Name</p>
+        <p>Description: A beautiful dress that fits any occasion.</p>
+        <p class="price">Price: ₹2000</p>
+        <p class="discount">Discount: 10% Off</p>
+        <p class="free-delivery">Free Delivery Available</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    
+    <!-- Example Product Card 2 -->
+    <div class="product-card">
+        <img src="{% static 'store/images/kids-cloth2.jpeg' %}" alt="Product 2">
+        <h3>Product Name 2</h3>
+        <p>Brand: Brand Name</p>
+        <p>Description: Elegant and stylish top for all seasons.</p>
+        <p class="price">Price: ₹1600</p>
+        <p class="discount">Discount: 15% Off</p>
+        <p class="free-delivery">Free Delivery Available</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <!-- Example Product Card 3 -->
+    <div class="product-card">
+        <img src="{% static 'store/images/kids-cloth3.jpeg' %}" alt="Product 3">
+        <h3>Product Name 3</h3>
+        <p>Brand: Brand Name</p>
+        <p>Description: Comfortable casual wear for daily use.</p>
+        <p class="price">Price: ₹2500</p>
+        <p class="discount">Discount: 5% Off</p>
+        <p class="free-delivery">Free Delivery Available</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <!-- Example Product Card 4 -->
+    <div class="product-card">
+        <img src="{% static 'store/images/kids-cloth4.jpeg' %}" alt="Product 4">
+        <h3>Product Name 4</h3>
+        <p>Brand: Brand Name</p>
+        <p>Description: Stylish jacket perfect for chilly evenings.</p>
+        <p class="price">Price: ₹800</p>
+        <p class="discount">Discount: 20% Off</p>
+        <p class="free-delivery">Free Delivery Available</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <!-- Example Product Card 5 -->
+    <div class="product-card">
+        <img src="{% static 'store/images/kids-cloth5.jpeg' %}" alt="Product 5">
+        <h3>Product Name 5</h3>
+        <p>Brand: Brand Name</p>
+        <p>Description: An elegant evening dress for special occasions.</p>
+        <p class="price">Price: ₹370</p>
+        <p class="discount">Discount: 10% Off</p>
+        <p class="free-delivery">Free Delivery Available</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <!-- Example Product Card 6 -->
+    <div class="product-card">
+        <img src="{% static 'store/images/kids-cloth6.jpeg' %}" alt="Product 6">
+        <h3>Product Name 6</h3>
+        <p>Brand: Brand Name</p>
+        <p>Description: Classic pair of jeans for everyday wear.</p>
+        <p class="price">Price: ₹550</p>
+        <p class="discount">Discount: 25% Off</p>
+        <p class="free-delivery">Free Delivery Available</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    
+</div>
+
+    <!-- Footer (Optional) -->
+    <footer>
+        <p>&copy; 2025 SwiftMart. All rights reserved.</p>
+    </footer>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    let productCard = this.closest(".product-card");
+                    let productID = productCard.getAttribute("data-product-id");
+                    let productName = productCard.getAttribute("data-name");
+                    let productPrice = productCard.getAttribute("data-price");
+                    let productImg = productCard.getAttribute("data-img");
+    
+                    addToCart(productID, productName, productPrice, productImg);
+                });
+            });
+        });
+    
+        function addToCart(productId, productName, productPrice, productImg) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    
+            let cartItem = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                img: productImg
+            };
+    
+            cartItems.push(cartItem);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    
+            alert("Product added to cart!");
+    
+            // Redirect to cart page
+            window.location.href = "{% url 'cart' %}";
+        }
+    </script>
+
+
+    
+</body>
+</html>

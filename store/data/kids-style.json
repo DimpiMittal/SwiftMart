@@ -1,0 +1,66 @@
+{
+"source_file": "kids-style.html",
+"products":[
+    {
+      "id": 1,
+      "name": "Sharara for Cute Girls",
+      "age_group": "10-12 years",
+      "price": 50.0,
+      "discount": "10%",
+      "description": "A beautiful sharara set for cute girls aged 10-12.",
+      "image": "store/images/kids-cloth.jpeg",
+      "free_delivery": true
+    },
+    {
+      "id": 2,
+      "name": "Two Small Frocks for Girls",
+      "age_group": "6-8 years",
+      "price": 30.0,
+      "discount": "15%",
+      "description": "Elegant and stylish frocks for girls aged 6-8 years.",
+      "image": "store/images/kids-cloth2.jpeg",
+      "free_delivery": true
+    },
+    {
+      "id": 3,
+      "name": "ZOLARIO 3-Piece Dress Set",
+      "age_group": "Party/Wedding Wear",
+      "price": 45.0,
+      "discount": "5%",
+      "description": "A beautiful 3-piece dress set, perfect for parties and weddings.",
+      "image": "store/images/kids-cloth3.jpeg",
+      "free_delivery": true
+    },
+    {
+      "id": 4,
+      "name": "Black Hoodie and Pants Set",
+      "age_group": "10-12 years",
+      "price": 70.0,
+      "discount": "20%",
+      "description": "Stylish black hoodie and matching pants, perfect for chilly evenings.",
+      "image": "store/images/kids-cloth4.jpeg",
+      "free_delivery": true
+    },
+    {
+      "id": 5,
+      "name": "Black and White T-Shirt",
+      "age_group": "8-10 years",
+      "price": 120.0,
+      "discount": "10%",
+      "description": "Classic black and white T-shirt for casual outings.",
+      "image": "store/images/kids-cloth5.jpeg",
+      "free_delivery": true
+    },
+    {
+      "id": 6,
+      "name": "White and Green Floral Frock",
+      "age_group": "5-7 years",
+      "price": 40.0,
+      "discount": "25%",
+      "description": "Cute white and green frock with floral print for young girls.",
+      "image": "store/images/kids-cloth6.jpeg",
+      "free_delivery": true
+    }
+  ]
+  
+}

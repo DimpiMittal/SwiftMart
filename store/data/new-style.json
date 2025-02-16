@@ -1,0 +1,114 @@
+{
+    "source_file": "new-style.html",
+    "products": [
+      {
+        "id": 1,
+        "name": "Elegant Red Watch",
+        "description": "Very elegant red-colored watch for girls.",
+        "price": 30.00,
+        "discount": "15% Off",
+        "free_delivery": true,
+        "image": "store/images/style1.jpeg"
+      },
+      {
+        "id": 2,
+        "name": "Golden Metal Watch",
+        "description": "Golden-colored watch with a metal plate, perfect for girls.",
+        "price": 45.00,
+        "discount": "10% Off",
+        "free_delivery": true,
+        "image": "store/images/style2.jpeg"
+      },
+      {
+        "id": 3,
+        "name": "Bluish Boys Watch",
+        "description": "Stylish bluish-colored watch for boys.",
+        "price": 25.00,
+        "discount": "20% Off",
+        "free_delivery": true,
+        "image": "store/images/style3.jpeg"
+      },
+      {
+        "id": 4,
+        "name": "Black Touchscreen Watch",
+        "description": "Black-colored screen touch watch.",
+        "price": 60.00,
+        "discount": "5% Off",
+        "free_delivery": true,
+        "image": "store/images/style4.jpeg"
+      },
+      {
+        "id": 5,
+        "name": "Cute Colorful Bags",
+        "description": "Cute bags of different colors available for girls.",
+        "price": 50.00,
+        "discount": "10% Off",
+        "free_delivery": true,
+        "image": "store/images/style5.jpeg"
+      },
+      {
+        "id": 6,
+        "name": "Dog Face Bag",
+        "description": "Very cute bag with a dog face design.",
+        "price": 40.00,
+        "discount": "25% Off",
+        "free_delivery": true,
+        "image": "store/images/style6.jpeg"
+      },
+      {
+        "id": 7,
+        "name": "Black Fancy Handbag",
+        "description": "Black-colored fancy handbag for girls.",
+        "price": 20.00,
+        "discount": "10% Off",
+        "free_delivery": true,
+        "image": "store/images/style7.jpeg"
+      },
+      {
+        "id": 8,
+        "name": "Golden Party Bag",
+        "description": "Very fancy party shimmer bag of golden and white colors, very pretty.",
+        "price": 15.00,
+        "discount": "5% Off",
+        "free_delivery": true,
+        "image": "store/images/style8.jpeg"
+      },
+      {
+        "id": 9,
+        "name": "Classic Fancy Goggles",
+        "description": "Classic and fancy goggles.",
+        "price": 80.00,
+        "discount": "10% Off",
+        "free_delivery": true,
+        "image": "store/images/style9.jpeg"
+      },
+      {
+        "id": 10,
+        "name": "Black Zara Sunglasses",
+        "description": "Black-colored Zara sunglasses.",
+        "price": 15.00,
+        "discount": "20% Off",
+        "free_delivery": true,
+        "image": "store/images/style10.jpeg"
+      },
+      {
+        "id": 11,
+        "name": "Square Fashionable Goggles",
+        "description": "Very fashionable goggles of square shape.",
+        "price": 12.00,
+        "discount": "15% Off",
+        "free_delivery": true,
+        "image": "store/images/style11.jpeg"
+      },
+      {
+        "id": 12,
+        "name": "White Bag with Cat Photo",
+        "description": "Very good and pretty white bag with a cat photo, cute bag.",
+        "price": 12.00,
+        "discount": "15% Off",
+        "free_delivery": true,
+        "image": "store/images/style12.jpeg"
+      }
+    ]
+  }
+  

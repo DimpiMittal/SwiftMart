@@ -1,0 +1,1025 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Keyframes for the animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Body */
+body {
+    background-color: rgb(249, 248, 244);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between; /* Space between brand and nav items */
+    align-items: center;
+    background-color: black;
+    padding: 15px 35px;  /* Add some padding for spacing */
+    color: white;
+}
+
+.brand-name {
+    font-size: 4em;
+    font-weight: bold;
+    color: rgba(233, 119, 233, 0.9);  /* Purple color for SwiftMart */
+    animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Additional Fashion Navigation */
+        .fashion-nav {
+            background-color:rgb(246, 240, 240); /* Light background color */
+            padding: 20px 0; /* Top and bottom padding */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            border-bottom: 5px solidrgb(300, 300, 230);
+        }
+        
+        .fashion-nav ul {
+            list-style-type: none; /* Remove default list bullets */
+            display: flex; /* Flexbox layout to align items in a row */
+            justify-content: center; /* Center-align the links */
+            gap: 20px; /* Space between each link */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .fashion-nav a {
+            color: #333; /* Dark text color */
+            text-decoration: none; /* Remove underline */
+            font-size: 18px; /* Set font size */
+            font-weight: bold; /* Make the font bold */
+            padding: 30px 40px; /* Add some padding around the link */
+            border-radius: 5px; /* Round the corners of the links */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+        }
+        
+        .fashion-nav a:hover {
+            background-color: #f4a261; /* Light orange background on hover */
+            color: white; /* White text on hover */
+        }
+        
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .fashion-nav ul {
+                flex-direction: column; /* Stack links vertically on smaller screens */
+                align-items: center; /* Center-align links */
+            }
+        
+            .fashion-nav a {
+                font-size: 16px; /* Slightly smaller text on mobile */
+                padding: 12px 20px; /* Adjust padding for better spacing */
+            }
+        }
+        
+
+/* Main Section - Background Image */
+main {
+    flex-grow: 1;
+    
+    background-color: rgb(249, 248, 244);
+    background-size: cover; /* Ensures image fully covers the container */
+    background-position: center center; /* Keeps the image centered */
+    height: 100%; /* Ensures the height of the section takes the full height */
+    min-height: 80vh; /* Ensure there's a minimum height for good visual */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    overflow: auto; /* Allows scrolling if content exceeds height */
+    filter: none;
+}
+
+/* Main Section - Background Image */
+.main-image {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Make sure it takes up the full viewport height */
+    display: flex;
+    justify-content: flex-start; /* Align child elements to the left */
+    align-items: center; /* Vertically center the content if needed */
+}
+
+/* Main Content */
+.main-content {
+    text-align: left;
+    opacity: 0; /* Start as invisible */
+    animation: fadeIn 2s ease-in-out forwards; /* Apply fade-in animation */
+    margin-left: 20px; /* Optional: Add some space from the left edge */
+}
+
+/* Heading Animation */
+.main-content h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 6em;
+    color:rgb(139, 44, 128); /* Darker text color */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    align-items: center; /* Ensure alignment to the left */
+    margin-left: 0; /* Reset margin-left here for better control */
+}
+
+/* Word Animation */
+.word {
+    opacity: 0; /* Start as invisible */
+    animation: wordAnimation 2s ease forwards;
+    font-size: .25em; /* Larger font size */
+    font-weight: bold;
+    margin: 0 5px; /* Space out words */
+    margin-left: 10px;
+}
+
+/* Delay for each word */
+.word:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.word:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.word:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+.word:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+/* Button Animation */
+.shop-now-btn {
+    font-size: .5em;
+    padding: 15px 30px;
+    background-color:rgb(165, 115, 215);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    opacity: 0; /* Start as invisible */
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 2s; /* Delay for button animation */
+    margin-top: 20px; /* Optional: Add space between the button and text */
+}
+
+/* Hover Effect for Button */
+.shop-now-btn:hover {
+    background-color:rgb(170, 118, 226);
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Word Animation */
+@keyframes wordAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #171616; /* Dark background */
+    color: white;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+footer h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px; /* Added margin to space out from content below */
+}
+
+.mail-icon {
+    width: 40px; /* Icon size */
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+img {
+    background-color: transparent;
+}
+
+.mail-icon:hover {
+    transform: scale(1.1); /* Slightly scale up the icon on hover */
+}
+
+.mail-link {
+    display: inline-block;
+    margin-top: 10px; /* Spacing between the icon and text */
+}
+
+footer p {
+    font-size: 1em;
+    margin-top: 10px; /* Adds space between the text and footer */
+}
+
+/* Container for sliding images */
+.sliding-images {
+    position: relative; 
+    width: 100%; /* Full width */
+    height: 50vh; /* Same height as video section, you can adjust this if needed */
+    margin-top: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+}
+
+/* Each image slide */
+.image-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out; /* Smooth fade transition */
+}
+
+.image-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dots navigation (Now rectangular) */
+.navigation-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 20px; /* Rectangle width */
+    height: 5px; /* Rectangle height */
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+@keyframes slideAnimation {
+    0%, 33% {
+        opacity: 1;
+    }
+    33.33%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Applying animation to each slide */
+.image-slide:nth-child(1) {
+    animation: slideAnimation 15s infinite;
+    animation-delay: 0s;
+}
+
+.image-slide:nth-child(2) {
+    animation: slideAnimation 15s infinite;
+    animation-delay: 5s;
+}
+
+.image-slide:nth-child(3) {
+    animation: slideAnimation 15s infinite;
+    animation-delay: 10s;
+}
+
+
+
+/* Categories Section Styling */
+.categories-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f3f3f3; /* Light grey background */
+    position: relative;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1), /* Shadow at the top */
+                0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded edges */
+    margin: 30px 20px; /* Spacing around section */
+}
+
+/* Section Title */
+.categories-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: rgb(168, 78, 123);
+}
+
+/* Product Slider */
+.product-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+    scrollbar-width: none; /* Hide scrollbar */
+}
+
+.product-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome */
+}
+
+/* Product Card */
+.product-card {
+    min-width: 220px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card img {
+    width: 100%;
+    margin: auto;
+    display: block;
+    object-fit: contain; /* or 'cover' */
+    aspect-ratio: 1 / 1;
+    opacity: 1;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img:hover {
+    transform: scale(1.1);
+}
+
+.product-details {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product-description {
+    font-size: 1.1em;
+    color: #555;
+    font-weight: bold;
+}
+
+.product-price {
+    font-size: 1.2em;
+    color: #ff5733;
+    font-weight: bold;
+}
+
+/* Slider Navigation Buttons */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+    user-select: none;
+}
+
+.slider-arrow {
+    background-color: rgba(0, 0, 0, 0.7);
+    
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .categories-section h2 {
+        font-size: 1.8em;
+    }
+
+    .product-card {
+        min-width: 180px;
+    }
+
+    .slider-arrow {
+        padding: 10px;
+        font-size: 1.2em;
+    }
+}
+
+.add-to-cart-btn {
+    background-color:rgb(8, 166, 210);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.add-to-cart-btn:hover {
+    background-color:rgb(13, 98, 234);
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+     <!-- Additional Fashion Navigation -->
+     <nav class="fashion-nav">
+        <ul>
+            <a href="{% url 'women-style' %}">Women's Style</a>
+            <a href="{% url 'men-style' %}">Men's Style</a>
+            <a href="{% url 'kids-style' %}">Kids' Style</a>
+            <a href="{% url 'new-style' %}">Accessories</a>
+            <a href="{% url 'utensils' %}">Kitchen-Appliances</a>
+            
+        </ul>
+    </nav>
+    
+    <main>
+         
+<!-- Sliding Images Section -->
+<div class="sliding-images">
+    <div class="image-slide">
+        <img src="{% static 'store/images/discount1.webp' %}" alt="Slide 1" />
+    </div>
+    <div class="image-slide">
+        <img src="{% static 'store/images/discount2.webp' %}" alt="Slide 2" />
+    </div>
+    <div class="image-slide">
+        <img src="{% static 'store/images/discount3.avif' %}" alt="Slide 3" />
+    </div>
+    <!-- Navigation Dots -->
+    <div class="navigation-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+
+<div class="main-content">
+    <h1>
+        <span class="word">Amazing</span>
+        <span class="word">Deals</span>
+        <span class="word">Await</span>
+        <span class="word">You!</span>
+    </h1>
+    <a href="{% url 'shop' %}">
+        <button class="shop-now-btn">Shop Now</button>
+    </a>
+</div>  
+    </main>
+
+
+    <!-- Categories Section -->
+<div class="categories-section">
+    <h2>Beauty, Food, Toys & More</h2>
+    
+    <div class="product-slider">
+        <!-- Beauty Products -->
+        <div class="product-card">
+            <img src="{% static 'store/images/beauty.webp' %}" alt="Beauty 1" />
+            <div class="product-details">
+                <p class="product-description">Mamaearth Face Cream</p>
+                <p class="product-price">₹200</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'store/images/beauty2.avif' %}" alt="Beauty 2" />
+            <div class="product-details">
+                <p class="product-description">Ladies Perfume</p>
+                <p class="product-price">₹320</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Food Products -->
+        <div class="product-card">
+            <img src="{% static 'store/images/food.webp' %}" alt="Food 1" />
+            <div class="product-details">
+                <p class="product-description">Aloo Namkeen</p>
+                <p class="product-price">₹80</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'store/images/food2.webp' %}" alt="Food 2" />
+            <div class="product-details">
+                <p class="product-description">Saffron Mixed Fruits</p>
+                <p class="product-price">₹280</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Toys -->
+        <div class="product-card">
+            <img src="{% static 'store/images/toy.jpg' %}" alt="Toy 1" />
+            <div class="product-details">
+                <p class="product-description">Cute Teddy Bear</p>
+                <p class="product-price">₹310</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'store/images/toy2.jpeg' %}" alt="Toy 2" />
+            <div class="product-details">
+                <p class="product-description">Building Blocks</p>
+                <p class="product-price">₹140</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- More Products -->
+        <div class="product-card">
+            <img src="{% static 'store/images/decor.jpg' %}" alt="Product 1" />
+            <div class="product-details">
+                <p class="product-description">Amazing Wall Decor</p>
+                <p class="product-price">₹970</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'store/images/decor2.jpeg' %}" alt="Product 2" />
+            <div class="product-details">
+                <p class="product-description">Divine Ganesha Diya </p>
+                <p class="product-price">₹480</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider Buttons -->
+    <button class="slider-arrow left-arrow">&#10094;</button>
+    <button class="slider-arrow right-arrow">&#10095;</button>
+</div>
+
+
+<!-- Storage & Organization Section -->
+<div class="categories-section">
+    <h2>Storage & Organization</h2>
+    
+    <div class="product-slider">
+        <!-- Storage Products -->
+        <div class="product-card">
+            <img src="{% static 'store/images/storage.jpeg' %}" alt="Storage Box" />
+            <div class="product-details">
+                <p class="product-description">Plastic Storage Box</p>
+                <p class="product-price">₹180</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'store/images/storage2.avif' %}" alt="Closet Organizer" />
+            <div class="product-details">
+                <p class="product-description">Closet Organizer</p>
+                <p class="product-price">₹480</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Shelving & Racks -->
+        <div class="product-card">
+            <img src="{% static 'store/images/storage8.jpg' %}" alt="Shelf 1" />
+            <div class="product-details">
+                <p class="product-description">Under Bed Storage</p>
+                <p class="product-price">₹990</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'store/images/storage4.jpeg' %}" alt="Shelf 2" />
+            <div class="product-details">
+                <p class="product-description">Multipurpose Rack</p>
+                <p class="product-price">₹200</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Office & Home Organizers -->
+        <div class="product-card">
+            <img src="{% static 'store/images/storage5.jpeg' %}" alt="Organizer 1" />
+            <div class="product-details">
+                <p class="product-description">Drawer Organizer</p>
+                <p class="product-price">₹100</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'store/images/storage6.jpeg' %}" alt="Organizer 2" />
+            <div class="product-details">
+                <p class="product-description">Desk Organizer Set</p>
+                <p class="product-price">₹250</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- More Storage Items -->
+        <div class="product-card">
+            <img src="{% static 'store/images/storage7.jpeg' %}" alt="Storage 3" />
+            <div class="product-details">
+                <p class="product-description">Foldable Storage Bin</p>
+                <p class="product-price">₹880</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="{% static 'store/images/storage3.avif' %}" alt="Storage 4" />
+            <div class="product-details">
+                <p class="product-description">Wall Mounted Shelf</p>
+                <p class="product-price">150</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider Buttons -->
+    <button class="slider-arrow left-arrow">&#10094;</button>
+    <button class="slider-arrow right-arrow">&#10095;</button>
+
+
+</div>
+
+
+<!-- Jewelry & Hair Glam Section -->
+<div class="categories-section">
+    <h2>Jewelry & Hair Glam</h2>
+    
+    <div class="product-slider">
+        <!-- Earrings -->
+        <div class="product-card">
+            <img src="{% static 'store/images/jewlery.webp' %}" alt="Earrings 1" />
+            <div class="product-details">
+                <p class="product-description">Elegant Pearl Earrings</p>
+                <p class="product-price">₹250</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <img src="{% static 'store/images/jewlery2.jpeg' %}" alt="Earrings 2" />
+            <div class="product-details">
+                <p class="product-description">Gold-Plated Hoops</p>
+                <p class="product-price">₹400</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Hair Accessories -->
+        <div class="product-card">
+            <img src="{% static 'store/images/jewlery3.jpeg' %}" alt="Hair Clip 1" />
+            <div class="product-details">
+                <p class="product-description">Crystal Hair Clip</p>
+                <p class="product-price">₹320</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <img src="{% static 'store/images/jewlery4.jpeg' %}" alt="Hair Band" />
+            <div class="product-details">
+                <p class="product-description">Trendy Hair Band</p>
+                <p class="product-price">₹180</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Necklaces -->
+        <div class="product-card">
+            <img src="{% static 'store/images/jewlery5.avif' %}" alt="Necklace 1" />
+            <div class="product-details">
+                <p class="product-description">Silver Pendant Necklace</p>
+                <p class="product-price">₹500</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <img src="{% static 'store/images/jewlery6.jpeg' %}" alt="Necklace 2" />
+            <div class="product-details">
+                <p class="product-description">Layered Gold Necklace</p>
+                <p class="product-price">₹3750</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider Buttons -->
+    <button class="slider-arrow left-arrow jewelry-left">&#10094;</button>
+    <button class="slider-arrow right-arrow jewelry-right">&#10095;</button>
+</div>
+
+
+
+
+    
+    <footer>
+        <h3>Stay Connected</h3>
+        <a href="mailto:example@example.com" class="mail-link">
+            <img src="{% static 'store/images/mail_icon.png' %}" alt="Email" class="mail-icon">
+        </a>
+        <p>&copy; 2025 SwiftMart | All Rights Reserved</p>
+    </footer>
+    
+    <!-- Modal Box (Login/Register) -->
+    <div id="loginRegisterBox" class="login-register-box" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Login or Register</h5>
+                <button type="button" class="close-btn" onclick="closeLoginBox()">×</button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav-tabs">
+                    <li><a href="#" id="loginTab" class="active" onclick="showTab('login')">Login</a></li>
+                    <li><a href="#" id="registerTab" onclick="showTab('register')">Register</a></li>
+                </ul>
+    
+                <!-- Login Form -->
+                <div id="loginForm" class="form-content">
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="email" id="loginEmail" class="form-control" placeholder="Email" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Password" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+    
+                <!-- Register Form -->
+                <div id="registerForm" class="form-content" style="display: none;">
+                    <form action="{% url 'register' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" id="registerName" class="form-control" placeholder="Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="registerEmail" class="form-control" placeholder="Email" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="registerPassword" class="form-control" placeholder="Password" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            function setupSlider(sectionClass, leftArrowClass, rightArrowClass) {
+                const slider = document.querySelector(`.${sectionClass} .product-slider`);
+                const leftArrow = document.querySelector(`.${leftArrowClass}`);
+                const rightArrow = document.querySelector(`.${rightArrowClass}`);
+        
+                if (slider && leftArrow && rightArrow) {
+                    let scrollAmount = 0;
+                    const scrollStep = 300; // Adjust as needed
+        
+                    rightArrow.addEventListener("click", function () {
+                        slider.scrollBy({ left: scrollStep, behavior: "smooth" });
+                    });
+        
+                    leftArrow.addEventListener("click", function () {
+                        slider.scrollBy({ left: -scrollStep, behavior: "smooth" });
+                    });
+                }
+            }
+        
+            // Apply slider function to both sections
+            setupSlider("categories-section", "left-arrow", "right-arrow");
+            setupSlider("categories-section:last-of-type", "storage-left", "storage-right");
+        });
+        
+        
+        // Show login/register modal
+        function showLoginRegisterBox() {
+            document.getElementById('loginRegisterBox').style.display = 'block';
+        }
+    
+        // Close modal
+        function closeLoginBox() {
+            document.getElementById('loginRegisterBox').style.display = 'none';
+        }
+    
+        // Switch between login and register forms
+        function showTab(tabName) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+    
+            if (tabName === 'login') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                registerTab.classList.add('active');
+                loginTab.classList.remove('active');
+            }
+        }
+    
+       
+        const dots = document.querySelectorAll('.dot');
+const slides = document.querySelectorAll('.image-slide');
+let currentIndex = 0;
+
+function changeSlide() {
+    // Reset all slides and dots
+    slides.forEach((slide, index) => {
+        slide.style.opacity = 0; // Hide all slides
+        dots[index].classList.remove('active'); // Remove active dot
+    });
+
+    // Show current slide and update active dot
+    slides[currentIndex].style.opacity = 1;
+    dots[currentIndex].classList.add('active');
+
+    // Move to the next slide (looping back to the first)
+    currentIndex = (currentIndex + 1) % slides.length;
+}
+
+// Change slide every 5 seconds
+setInterval(changeSlide, 5000);
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            let productCard = this.closest(".product-card");
+            let productID = productCard.getAttribute("data-product-id");
+            let productName = productCard.getAttribute("data-name");
+            let productPrice = productCard.getAttribute("data-price");
+            let productImg = productCard.getAttribute("data-img");
+
+            addToCart(productID, productName, productPrice, productImg);
+        });
+    });
+});
+
+function addToCart(productId, productName, productPrice, productImg) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    let cartItem = {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        img: productImg
+    };
+
+    cartItems.push(cartItem);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    alert("Product added to cart!");
+
+    // Redirect to cart page
+    window.location.href = "{% url 'cart' %}";
+}
+
+    </script>
+    </body>
+    </html>
+    

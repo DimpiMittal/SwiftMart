@@ -1,0 +1,187 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('{% static "images/home.jpeg" %}');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 2px -2px gray;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header .navbar a {
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .navbar a:hover {
+    color: #007bff;
+}
+
+/* Main Content Section */
+.main-content {
+    display: flex;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.sidebar .search input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .profile,
+.sidebar .cart {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.sidebar span {
+    font-size: 16px;
+}
+
+/* Banner Section */
+.banner {
+    flex-grow: 1;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.banner img:hover {
+    transform: scale(1.05);
+}
+
+.shop-now-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.shop-now-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    border-top: 2px solid #555;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: text-decoration 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .banner {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo h1 {
+        font-size: 24px;
+    }
+
+    header .navbar a {
+        font-size: 16px;
+        margin: 0 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .shop-now-btn {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+}

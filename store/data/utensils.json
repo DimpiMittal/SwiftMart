@@ -1,0 +1,77 @@
+{
+    "source_file": "utensils.html",
+    "products": [
+        {
+            "image": "store/images/utensils.jpeg",
+            "name": "Wooden Spatula Set",
+            "brand": "Brand Name",
+            "description": "Durable wooden spatula set for all cooking needs.",
+            "price": "$30.00",
+            "discount": "15% Off",
+            "free_delivery": true
+        },
+        {
+            "image": "store/images/utensils2.jpeg",
+            "name": "Cookwell Crown 3 Set",
+            "brand": "Brand Name",
+            "description": "High-quality cookware set for efficient cooking.",
+            "price": "$45.00",
+            "discount": "10% Off",
+            "free_delivery": true
+        },
+        {
+            "image": "store/images/utensils8.jpeg",
+            "name": "Non-Stick Pan",
+            "brand": "Brand Name",
+            "description": "Premium non-stick pan for easy cooking and cleaning.",
+            "price": "$25.00",
+            "discount": "20% Off",
+            "free_delivery": true
+        },
+        {
+            "image": "store/images/utensils4.jpeg",
+            "name": "Steel Utensils Set",
+            "brand": "Brand Name",
+            "description": "Complete set of steel utensils for every kitchen need.",
+            "price": "$60.00",
+            "discount": "5% Off",
+            "free_delivery": true
+        },
+        {
+            "image": "store/images/utensils5.jpeg",
+            "name": "Microwave",
+            "brand": "Brand Name",
+            "description": "Efficient microwave for quick and easy cooking.",
+            "price": "$50.00",
+            "discount": "10% Off",
+            "free_delivery": true
+        },
+        {
+            "image": "store/images/utensils6.jpeg",
+            "name": "Grey Fridge",
+            "brand": "Brand Name",
+            "description": "Stylish and spacious grey fridge for modern kitchens.",
+            "price": "$40.00",
+            "discount": "25% Off",
+            "free_delivery": true
+        },
+        {
+            "image": "store/images/utensils7.jpeg",
+            "name": "Two-Decker Fridge",
+            "brand": "Brand Name",
+            "description": "Large two-decker fridge for family needs.",
+            "price": "$20.00",
+            "discount": "10% Off",
+            "free_delivery": true
+        },
+        {
+            "image": "store/images/utensils3.jpeg",
+            "name": "Spoon and Fork Set",
+            "brand": "Brand Name",
+            "description": "Elegant spoon and fork set for dining tables.",
+            "price": "$15.00",
+            "discount": "5% Off",
+            "free_delivery": true
+        }
+    ]
+}

@@ -1,0 +1,265 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);
+            animation: slideIn 1s ease-out;
+        }
+        
+        /* Slide-In Animation */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .nav-icon {
+            width: 70px;
+            height: 50px;
+            object-fit: cover;
+        }
+        
+        /* Main Login Section */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .login-container h2 {
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #4CAF50;
+        }
+        
+        /* Input Fields */
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .input-group input::placeholder {
+            color: #888;
+            font-style: italic;
+        }
+        
+        /* Login Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            color: white;
+            background: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.2s ease;
+        }
+        
+        button:hover {
+            background: #45a049;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Links */
+        p {
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        
+        p a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        p a:hover {
+            color: #388e3c;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 30px;
+            }
+        
+            .brand-name {
+                font-size: 2.5em;
+            }
+        
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+        
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        
+            .nav-icon {
+                width: 50px;
+                height: 40px;
+            }
+        }
+    </style>        
+</head>
+<body>
+   
+    <header>
+        <div class="brand-name">SwiftMart</div>
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon">
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon">
+            </a>
+            <a href="#search">
+                <input type="text" id="search-bar" class="search-bar" placeholder="Search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon">
+            </a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="login-container">
+            <h2>Login to Your Account</h2>
+            <form method="POST" autocomplete="off">
+                {% csrf_token %}
+    
+                <div class="input-group">
+                    <label for="id_username">Username</label>
+                    <input type="text" name="username" id="id_username" placeholder="Enter your username" required autocomplete="off">
+                </div>
+    
+                <div class="input-group">
+                    <label for="id_password">Password</label>
+                    <input type="password" name="password" id="id_password" placeholder="Enter your password" required autocomplete="new-password" value="">
+                </div>
+    
+                <button type="submit">Login</button>
+            </form>
+    
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li style="color: red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            
+            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 SwiftMart | All Rights Reserved</p>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("id_username").value = "";
+            document.getElementById("id_password").value = "";
+        });
+    </script>
+    
+    </body>
+    </html>
+    
