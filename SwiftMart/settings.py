@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'swiftmart_db',  
         'USER': 'swiftmart_user',  
         'PASSWORD': 'Tikku2006',  
-        'HOST': 'localhost',  
+        'HOST': '127.0.0.1',  
         'PORT': '3306',
     }
 }
@@ -140,3 +140,21 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+      # Custom backend for email login (if needed)
+]
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Use your email provider's SMTP
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your_email_password'  # Use an app password instead of your real password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

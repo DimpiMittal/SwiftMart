@@ -162,60 +162,77 @@
 </head>
 <body>
 
-<header>
-    <div class="brand-name">SwiftMart</div>
-    <nav>
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'shop' %}">Shop</a>
-        <a href="{% url 'cart' %}">Cart</a>
-        <a href="{% url 'profile' %}">Profile</a>
-    </nav>
-</header>
+    <header>
+        <div class="brand-name">SwiftMart</div>
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">Shop</a>
+            <a href="{% url 'cart' %}">Cart</a>
+            <a href="{% url 'profile' %}">Profile</a>
+        </nav>
+    </header>
 
-<main>
-    <div class="register-container">
-        <h2>Register</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="id_username">Username</label>
-                {{ form.username }}
-                {% if form.username.errors %}
-                    <div class="errorlist">{{ form.username.errors }}</div>
-                {% endif %}
-            </div>
-            <div class="form-group">
-                <label for="id_email">Email Address</label>
-                {{ form.email }}
-                {% if form.email.errors %}
-                    <div class="errorlist">{{ form.email.errors }}</div>
-                {% endif %}
-            </div>
-            <div class="form-group">
-                <label for="id_password1">Password</label>
-                {{ form.password1 }}
-                {% if form.password1.errors %}
-                    <div class="errorlist">{{ form.password1.errors }}</div>
-                {% endif %}
-            </div>
-            <div class="form-group">
-                <label for="id_password2">Confirm Password</label>
-                {{ form.password2 }}
-                {% if form.password2.errors %}
-                    <div class="errorlist">{{ form.password2.errors }}</div>
-                {% endif %}
-            </div>
-            <button type="submit">Sign Up</button>
-        </form>
-        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
-    </div>
-</main>
+    <main>
+        <div class="register-container">
+            <h2>Register</h2>
 
-<footer>
-    <p>&copy; 2025 SwiftMart | All Rights Reserved</p>
-</footer>
+            <form method="POST" action="{% url 'register' %}" id="register-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="id_username">Username</label>
+                    {{ form.username }}
+                    {% for error in form.username.errors %}
+                        <span class="errorlist">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_email">Email Address</label>
+                    {{ form.email }}
+                    {% for error in form.email.errors %}
+                        <span class="errorlist">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_password1">Password</label>
+                    {{ form.password1 }}
+                    {% for error in form.password1.errors %}
+                        <span class="errorlist">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_password2">Confirm Password</label>
+                    {{ form.password2 }}
+                    {% for error in form.password2.errors %}
+                        <span class="errorlist">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <button type="submit" id="register-btn">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SwiftMart | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("register-form");
+    
+            form.addEventListener("submit", function () {
+                // No need to prevent default, let Django handle it
+                document.getElementById("register-btn").disabled = true; // Prevent multiple clicks
+            });
+        });
+    </script>
+    
 
 </body>
 </html>
-
-    

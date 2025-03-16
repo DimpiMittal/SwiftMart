@@ -405,40 +405,47 @@
 
 
    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-                button.addEventListener("click", function () {
-                    let productCard = this.closest(".product-card");
-                    let productID = productCard.getAttribute("data-product-id");
-                    let productName = productCard.getAttribute("data-name");
-                    let productPrice = productCard.getAttribute("data-price");
-                    let productImg = productCard.getAttribute("data-img");
-    
-                    addToCart(productID, productName, productPrice, productImg);
-                });
-            });
-        });
-    
-        function addToCart(productId, productName, productPrice, productImg) {
-            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    
-            let cartItem = {
-                id: productId,
-                name: productName,
-                price: productPrice,
-                img: productImg
-            };
-    
-            cartItems.push(cartItem);
-            localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    
-            alert("Product added to cart!");
-    
-            // Redirect to cart page
-            window.location.href = "{% url 'cart' %}";
+<script>
+        
+    document.addEventListener("DOMContentLoaded", function () {
+document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+    button.addEventListener("click", function () {
+        let productCard = this.closest(".product-card");  // Find the nearest product card
+        let productName = productCard.querySelector("h3")?.innerText.trim();
+        let productDescription = [...productCard.querySelectorAll("p")]
+            .find(p => p.innerText.startsWith("Description:"))?.innerText.replace("Description:", "").trim();
+        let productPrice = productCard.querySelector(".price")?.innerText.replace("Price: ₹", "").trim();
+        let productImg = productCard.querySelector("img")?.src;
+
+        // Check if any value is missing
+        if (!productName || !productPrice || !productImg || !productDescription) {
+            console.error("Product data is missing:", productName, productPrice, productImg, productDescription);
+            alert("Error: Product details are missing!");
+            return;
         }
-    </script>
+
+        addToCart(productName, productDescription, productPrice, productImg);
+    });
+});
+});
+
+// Function to add item to cart
+function addToCart(productName, productDescription, productPrice, productImg) {
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+let cartItem = { name: productName, description: productDescription, price: productPrice, img: productImg };
+cartItems.push(cartItem);
+localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+alert(`${productName} added to cart!`);
+window.location.href = "/cart/"; // Redirect to cart page
+}
+
+
+</script>
+
+
+
 
     
 

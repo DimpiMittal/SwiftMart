@@ -7,24 +7,20 @@
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
     <style>
-       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
             display: flex;
             flex-direction: column;
+            height: 100vh;
         }
-        
-        /* Header Section */
+
         header {
             display: flex;
             justify-content: space-between;
@@ -33,48 +29,32 @@
             padding: 15px 35px;
             color: white;
         }
-        
+
         .brand-name {
             font-size: 4em;
             font-weight: bold;
             color: rgb(231, 106, 231);
-            animation: slideIn 1s ease-out;
         }
-        
-        /* Slide-In Animation */
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        /* Navigation */
+
         nav {
             display: flex;
             gap: 20px;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
             font-size: 1.2em;
             display: flex;
             align-items: center;
-            gap: 5px;
         }
-        
+
         .nav-icon {
             width: 70px;
             height: 50px;
             object-fit: cover;
         }
-        
-        /* Main Login Section */
+
         main {
             flex: 1;
             display: flex;
@@ -82,184 +62,211 @@
             align-items: center;
             padding: 20px;
         }
-        
-        .login-container {
-            background: white;
-            padding: 60px 50px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-        }
-        
-        .login-container h2 {
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            color: #4CAF50;
-        }
-        
-        /* Input Fields */
-        .input-group {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-        
-        .input-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        
-        .input-group input::placeholder {
-            color: #888;
-            font-style: italic;
-        }
-        
-        /* Login Button */
-        button {
-            width: 100%;
-            padding: 12px;
-            font-size: 1.1em;
-            color: white;
-            background: #4CAF50;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease, box-shadow 0.2s ease;
-        }
-        
-        button:hover {
-            background: #45a049;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Links */
-        p {
-            margin-top: 10px;
-            font-size: 1em;
-        }
-        
-        p a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        
-        p a:hover {
-            color: #388e3c;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 10px 20px;
-            background: #333;
-            color: white;
-            font-size: 0.9em;
-            margin-top: auto;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            .login-container {
-                padding: 30px;
-            }
-        
-            .brand-name {
-                font-size: 2.5em;
-            }
-        
-            header {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px;
-            }
-        
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-        
-            .nav-icon {
-                width: 50px;
-                height: 40px;
-            }
-        }
-    </style>        
+
+        /* Login and OTP container */
+
+        /* Login, OTP, and Register container */
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: absolute;
+    transition: 0.5s ease-in-out;
+}
+
+/* Hide inactive sections */
+#otp-box, #register-box {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.active {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Forgot password & Register link */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* OTP inputs */
+.otp-input {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Countdown Timer */
+#countdown {
+    margin-top: 10px;
+    color: red;
+}
+    </style>
 </head>
+
+
 <body>
-   
+
     <header>
         <div class="brand-name">SwiftMart</div>
         <nav>
             <a href="{% url 'index' %}">Home</a>
-            <a href="{% url 'shop' %}">
-                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon">
-            </a>
-            <a href="{% url 'cart' %}">
-                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon">
-            </a>
-            <a href="#search">
-                <input type="text" id="search-bar" class="search-bar" placeholder="Search">
-            </a>
-            <a href="{% url 'profile' %}">
-                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon">
-            </a>
+            <a href="{% url 'shop' %}"><img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"></a>
+            <a href="{% url 'cart' %}"><img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"></a>
+            <input type="text" id="search-bar" placeholder="Search">
+            <a href="{% url 'profile' %}"><img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"></a>
         </nav>
     </header>
     
     <main>
-        <div class="login-container">
-            <h2>Login to Your Account</h2>
-            <form method="POST" autocomplete="off">
+        <!-- Login Form -->
+        <div class="form-container active" id="login-box">
+            <h2>Login</h2>
+            <form id="login-form" method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
-    
-                <div class="input-group">
-                    <label for="id_username">Username</label>
-                    <input type="text" name="username" id="id_username" placeholder="Enter your username" required autocomplete="off">
-                </div>
-    
-                <div class="input-group">
-                    <label for="id_password">Password</label>
-                    <input type="password" name="password" id="id_password" placeholder="Enter your password" required autocomplete="new-password" value="">
-                </div>
-    
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
+                <a href="#" id="forgot-password">Forgot Password?</a>
                 <button type="submit">Login</button>
             </form>
-    
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li style="color: red;">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            
-            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+            <p>Don't have an account? <a href="#" id="register-link">Register here</a></p>
+        </div>
+
+        <!-- OTP Verification -->
+        <div class="form-container" id="otp-box">
+            <h2>Verify OTP</h2>
+            <p>A verification code has been sent to your email</p>
+            <form id="otp-form" method="POST" action="{% url 'verify_otp' %}">
+                {% csrf_token %}
+                <input type="text" name="otp" maxlength="6" placeholder="Enter OTP" required>
+                <p id="countdown">Resend OTP in <span id="timer">50</span>s</p>
+                <button type="submit">Verify OTP</button>
+            </form>
+            <p>Go back to <a href="#" id="login-link">Login</a></p>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="form-container" id="register-box">
+            <h2>Register</h2>
+            <form id="register-form" method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Enter your name" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="password" name="password1" placeholder="Create a password" required>
+                <input type="password" name="password2" placeholder="Confirm password" required>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="login-link-2">Login here</a></p>
         </div>
     </main>
-    
-    <footer>
-        <p>&copy; 2025 SwiftMart | All Rights Reserved</p>
-    </footer>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("id_username").value = "";
-            document.getElementById("id_password").value = "";
+            let loginBox = document.getElementById("login-box");
+            let otpBox = document.getElementById("otp-box");
+            let registerBox = document.getElementById("register-box");
+            let forgotPassword = document.getElementById("forgot-password");
+            let registerLink = document.getElementById("register-link");
+            let loginLink = document.getElementById("login-link");
+            let loginLink2 = document.getElementById("login-link-2");
+            let timerDisplay = document.getElementById("timer");
+
+            function switchForm(hideBox, showBox) {
+                hideBox.classList.remove("active");
+                showBox.classList.add("active");
+            }
+
+            registerLink.addEventListener("click", function (e) {
+                e.preventDefault();
+                switchForm(loginBox, registerBox);
+            });
+
+            loginLink.addEventListener("click", function (e) {
+                e.preventDefault();
+                switchForm(otpBox, loginBox);
+            });
+
+            loginLink2.addEventListener("click", function (e) {
+                e.preventDefault();
+                switchForm(registerBox, loginBox);
+            });
+
+            forgotPassword.addEventListener("click", function (e) {
+                e.preventDefault();
+                switchForm(loginBox, otpBox);
+                startOtpTimer();
+            });
+
+            function startOtpTimer() {
+                let timeLeft = 50;
+                let timer = setInterval(function () {
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        timerDisplay.innerText = "Resend";
+                        timerDisplay.style.cursor = "pointer";
+                        timerDisplay.addEventListener("click", function () {
+                            startOtpTimer();
+                            timerDisplay.innerText = "50";
+                            timerDisplay.style.cursor = "default";
+                        }, { once: true });
+                    } else {
+                        timerDisplay.innerText = timeLeft;
+                    }
+                    timeLeft -= 1;
+                }, 1000);
+            }
         });
     </script>
     
-    </body>
-    </html>
-    
+    <style>
+        .form-container { display: none; }
+        .form-container.active { display: block; }
+        .otp-inputs input { width: 40px; text-align: center; }
+    </style>
+</body>
+</html>

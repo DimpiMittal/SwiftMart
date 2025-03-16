@@ -9,65 +9,40 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Keyframes for the animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Body */
-body {
-    background-color: rgb(249, 248, 244);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between; /* Space between brand and nav items */
-    align-items: center;
-    background-color: black;
-    padding: 15px 35px;  /* Add some padding for spacing */
-    color: white;
-}
-
-.brand-name {
-    font-size: 4em;
-    font-weight: bold;
-    color: rgba(233, 119, 233, 0.9);  /* Purple color for SwiftMart */
-    animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
+         /* General Reset for Body */
+         body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd1a5;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
 
 /* Navigation Styling */
 nav {
@@ -275,74 +250,34 @@ main {
 }
 
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #171616; /* Dark background */
-    color: white;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-}
-
-footer h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px; /* Added margin to space out from content below */
-}
-
-.mail-icon {
-    width: 40px; /* Icon size */
-    cursor: pointer;
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
-}
-
-img {
-    background-color: transparent;
-}
-
-.mail-icon:hover {
-    transform: scale(1.1); /* Slightly scale up the icon on hover */
-}
-
-.mail-link {
-    display: inline-block;
-    margin-top: 10px; /* Spacing between the icon and text */
-}
-
-footer p {
-    font-size: 1em;
-    margin-top: 10px; /* Adds space between the text and footer */
-}
 
 /* Container for sliding images */
 .sliding-images {
     position: relative; 
-    width: 100%; /* Full width */
-    height: 50vh; /* Same height as video section, you can adjust this if needed */
-    margin-top: 0;
+    width: 100vw; /* Full viewport width */
+    height: 60vh; /* Adjust height as needed */
     margin: 0;
     padding: 0;
     overflow: hidden;
-   
 }
 
 /* Each image slide */
 .image-slide {
     position: absolute;
-    width: 100%;
+    width: 100vw; /* Full width */
     height: 100%;
     opacity: 0; /* Initially hidden */
-    transition: opacity 1s ease-in-out; /* Smooth fade transition */
+    transition: opacity 1s ease-in-out;
 }
 
+/* Ensuring images cover full screen */
 .image-slide img {
-    width: 100%;
+    width: 100vw; /* Full viewport width */
     height: 100%;
     object-fit: cover;
 }
 
-/* Dots navigation (Now rectangular) */
+/* Navigation Dots */
 .navigation-dots {
     position: absolute;
     bottom: 10px;
@@ -353,8 +288,8 @@ footer p {
 }
 
 .dot {
-    width: 20px; /* Rectangle width */
-    height: 5px; /* Rectangle height */
+    width: 20px;
+    height: 5px;
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -364,13 +299,10 @@ footer p {
     background-color: rgba(255, 255, 255, 1);
 }
 
+/* Animation */
 @keyframes slideAnimation {
-    0%, 33% {
-        opacity: 1;
-    }
-    33.33%, 100% {
-        opacity: 0;
-    }
+    0%, 33% { opacity: 1; }
+    33.33%, 100% { opacity: 0; }
 }
 
 /* Applying animation to each slide */
@@ -531,6 +463,150 @@ footer p {
 }
 
 
+
+
+/* 🔹 Footer Styling */
+footer {
+    background-color: #040404;
+    color: white;
+    padding: 60px 10%;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🔹 Footer Grid Layout */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    justify-content: center;
+}
+
+/* 🔹 Footer Sections */
+.footer-section {
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #f7ef66; /* Gold Accent */
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* 🔹 Underline Effect */
+.footer-section h3::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background-color: #FFD700;
+    display: block;
+    margin-top: 5px;
+}
+
+/* 🔹 Footer Links */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #bbb;
+    transition: color 0.3s ease, transform 0.2s ease-in-out;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.footer-section ul li a:hover {
+    color: #FFD700;
+    transform: translateX(5px);
+}
+
+/* 🔹 Social Media Section */
+.social-media {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon,
+.linkedin-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.linkedin-icon {
+    width: 80px;
+}
+
+.social-icon:hover,
+.linkedin-icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.7);
+}
+
+/* 🔹 Contact Info */
+.mail-icon {
+    width: 40px;
+    vertical-align: middle;
+}
+
+.footer-section p {
+    font-size: 15px;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.footer-section p a {
+    color: #ff0055;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-section p a:hover {
+    text-decoration: underline;
+    color: #FFD700;
+}
+
+/* 🔹 Payment Methods */
+.payment-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.payment-icons img {
+    width: 65px;
+    height: 45px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.payment-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* 🔹 Copyright Section */
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid #555;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+
     </style>
 </head>
 <body>
@@ -589,17 +665,8 @@ footer p {
     </div>
 </div>
 
-<div class="main-content">
-    <h1>
-        <span class="word">Amazing</span>
-        <span class="word">Deals</span>
-        <span class="word">Await</span>
-        <span class="word">You!</span>
-    </h1>
-    <a href="{% url 'shop' %}">
-        <button class="shop-now-btn">Shop Now</button>
-    </a>
-</div>  
+
+
     </main>
 
 
@@ -849,14 +916,82 @@ footer p {
 
 
     
-    <footer>
-        <h3>Stay Connected</h3>
-        <a href="mailto:example@example.com" class="mail-link">
-            <img src="{% static 'store/images/mail_icon.png' %}" alt="Email" class="mail-icon">
-        </a>
+<footer>
+    <div class="footer-container">
+        <!-- 🔹 About Section -->
+        <div class="footer-section">
+            <h3>About SwiftMart</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- 🔹 Customer Service -->
+        <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Returns & Refunds</a></li>
+                <li><a href="#">Shipping Policy</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+
+        <!-- 🔹 Policies -->
+        <div class="footer-section">
+            <h3>Policies</h3>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Security</a></li>
+            </ul>
+        </div>
+
+        <!-- 🔹 Social Media -->
+        <div class="footer-section social-media">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="{% static 'store/images/facebook_logo.jpeg' %}" alt="Facebook" class="social-icon"></a>
+                <a href="#"><img src="{% static 'store/images/twitter_logo.png' %}" alt="Twitter" class="social-icon"></a>
+                <a href="#"><img src="{% static 'store/images/instagram_logo.jpeg' %}" alt="Instagram" class="social-icon"></a>
+                <a href="#"><img src="{% static 'store/images/linkedin_logo.jpeg' %}" alt="LinkedIn" class="linkedin-icon"></a>
+            </div>
+        </div>
+
+        <!-- 🔹 Contact Info -->
+        <div class="footer-section">
+            <h3>Stay Connected</h3>
+            <a href="mailto:example@example.com" class="mail-link">
+                <img src="{% static 'store/images/mail_icon.png' %}" alt="Email" class="mail-icon">
+            </a>
+            <p>Email: <a href="mailto:support@B2WorldShopping.com">support@SwiftMart.com</a></p>
+            <p>Phone: +91 9509794800</p>
+            <p>Address: SwiftMart Pvt. Ltd., Jaipur, Rajasthan , India</p>
+        </div>
+
+        <!-- 🔹 Payment Methods -->
+        <div class="footer-section">
+            <h3>We Accept</h3>
+            <div class="payment-icons">
+                <img src="{% static 'store/images/icon_visa.jpeg' %}" alt="Visa">
+                <img src="{% static 'store/images/mastercard_logo.png' %}" alt="MasterCard">
+                <img src="{% static 'store/images/paypal_icon.png' %}" alt="PayPal">
+                <img src="{% static 'store/images/upi_icon.png' %}" alt="UPI">
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔹 Copyright -->
+    <div class="footer-bottom">
         <p>&copy; 2025 SwiftMart | All Rights Reserved</p>
-    </footer>
-    
+    </div>
+</footer>
+
+
+
     <!-- Modal Box (Login/Register) -->
     <div id="loginRegisterBox" class="login-register-box" style="display: none;">
         <div class="modal-content">
@@ -986,39 +1121,39 @@ function changeSlide() {
 setInterval(changeSlide, 5000);
 
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".add-to-cart-btn").forEach(button => {
         button.addEventListener("click", function () {
-            let productCard = this.closest(".product-card");
-            let productID = productCard.getAttribute("data-product-id");
-            let productName = productCard.getAttribute("data-name");
-            let productPrice = productCard.getAttribute("data-price");
-            let productImg = productCard.getAttribute("data-img");
+            let productCard = this.closest(".product-card");  // Find the nearest product card
+            let productName = productCard.querySelector(".product-description")?.innerText.trim();
+            let productPrice = productCard.querySelector(".product-price")?.innerText.replace("₹", "").trim();
+            let productImg = productCard.querySelector("img")?.src;
 
-            addToCart(productID, productName, productPrice, productImg);
+            // Check if any value is missing
+            if (!productName || !productPrice || !productImg) {
+                console.error("Product data is missing:", productName, productPrice, productImg);
+                alert("Error: Product details are missing!");
+                return;
+            }
+
+            addToCart(productName, productPrice, productImg);
         });
     });
 });
 
-function addToCart(productId, productName, productPrice, productImg) {
+// Function to add item to cart
+function addToCart(productName, productPrice, productImg) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    let cartItem = {
-        id: productId,
-        name: productName,
-        price: productPrice,
-        img: productImg
-    };
-
+    let cartItem = { name: productName, price: productPrice, img: productImg };
     cartItems.push(cartItem);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-    alert("Product added to cart!");
-
-    // Redirect to cart page
-    window.location.href = "{% url 'cart' %}";
+    alert(`${productName} added to cart!`);
+    window.location.href = "/cart/"; // Redirect to cart page
 }
-
     </script>
     </body>
     </html>
