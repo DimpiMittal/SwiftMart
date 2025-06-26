@@ -68,23 +68,26 @@ def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        
+
         try:
+            # Get user by email
             user = User.objects.get(email=email)
         except User.DoesNotExist:
             messages.error(request, 'User with this email does not exist.')
             return redirect('login')
 
+        # Authenticate using username (not email)
         user = authenticate(request, username=user.username, password=password)
 
         if user is not None:
             login(request, user)
             messages.success(request, 'Login successful!')
-            return redirect('profile')
+            return redirect('profile')  # Ensure 'profile' URL is named correctly
         else:
             messages.error(request, 'Invalid email or password.')
-    
-    return render(request, 'accounts/login.html', {'form': AuthenticationForm()})
+            return redirect('login')  # Stay on login page if invalid
+
+    return render(request, 'accounts/login.html') 
 
 
 def send_login_otp(request):

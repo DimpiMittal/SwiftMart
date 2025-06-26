@@ -1,0 +1,364 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Your Business</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+    <style>
+           /* Body */
+body {
+    background-color: rgb(161, 191, 236);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+        
+
+/* Help Center Section */
+.help-center {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.issues {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.issue {
+    width: 250px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.issue:hover {
+    background: #e9ecef;
+    transform: scale(1.05);
+}
+
+.support-info {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #e0f7fa;
+    color: #007bff;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Contact Form Section */
+.contact-form {
+    background: white;
+    padding: 40px;
+    max-width: 1000px; /* Increased width */
+    width: 90%; /* Ensures responsiveness */
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px; /* Slightly increased padding */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #007bff;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Help Center Toggle Sections */
+.help-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.help-item {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.help-item:hover {
+    background: #e9ecef;
+}
+
+.help-content {
+    display: none;
+    padding: 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-form {
+        width: 95%;
+        padding: 30px;
+    }
+
+    .help-section {
+        width: 95%;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+   <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+     <!-- Help Center Section -->
+     <section class="help-center">
+        <h2>Help Center</h2>
+        <p>Click on the issue category to get support contact details:</p>
+        <div class="issues">
+            <div class="issue" onclick="showSupport('order')">
+                <h3>🔄 Order Issues</h3>
+                <p>Track, modify, or cancel your order.</p>
+                <div class="support-info" id="order-support">
+                    📧 Email: support@SwiftMart.com<br>
+                    📞 Call: +1 800 123 4567
+                </div>
+            </div>
+            <div class="issue" onclick="showSupport('payment')">
+                <h3>💳 Payment Issues</h3>
+                <p>Resolve payment failures or refund-related queries.</p>
+                <div class="support-info" id="payment-support">
+                    📧 Email: billing@SwiftMart.com<br>
+                    📞 Call: +1 800 987 6543
+                </div>
+            </div>
+            <div class="issue" onclick="showSupport('delivery')">
+                <h3>📦 Delivery Issues</h3>
+                <p>Check estimated delivery time or report a delay.</p>
+                <div class="support-info" id="delivery-support">
+                    📧 Email: delivery@SwiftMart.com<br>
+                    📞 Call: +1 800 456 7890
+                </div>
+            </div>
+            <div class="issue" onclick="showSupport('technical')">
+                <h3>🔧 Technical Issues</h3>
+                <p>Facing trouble with the website or mobile app?</p>
+                <div class="support-info" id="technical-support">
+                    📧 Email: techsupport@SwiftMart.com<br>
+                    📞 Call: +1 800 234 5678
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <h2>Still need help? Contact Us!</h2>
+        <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="input-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                    <option>Order Issue</option>
+                    <option>Payment Issue</option>
+                    <option>Delivery Issue</option>
+                    <option>Technical Support</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="message">Describe Your Issue</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+    </section>
+
+
+
+    <script>
+       
+       function showSupport(issueType) {
+    let selectedSupport = document.getElementById(issueType + '-support');
+    
+    if (selectedSupport.style.display === 'block') {
+        selectedSupport.style.display = 'none'; // Hide on second click
+    } else {
+        // Hide all other sections before showing the selected one
+        document.querySelectorAll('.support-info').forEach(div => div.style.display = 'none');
+        selectedSupport.style.display = 'block';
+    }
+}
+
+
+    </script>
+
+</body>
+</html>
+
+

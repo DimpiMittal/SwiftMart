@@ -1,0 +1,301 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Privacy | SwiftMart</title>
+    <link rel="stylesheet" href="store/css/styles.css">
+
+    <style>
+
+         /* General Reset for Body */
+         body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Security Sections */
+.security-section {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.security-section h2 {
+    color: #005a8d;
+}
+
+/* Toggle Content */
+.toggle-btn {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.toggle-btn:hover {
+    background-color: #005a8d;
+}
+
+.toggle-content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Contact Form */
+#contact-form {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+    align-self: flex-start;
+    margin-left: 10%;
+}
+
+form input, form textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 50%;
+}
+
+form button:hover {
+    background-color: #005a8d;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .security-section, #contact-form {
+        width: 90%;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        
+        
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Security Sections -->
+    <main>
+        <section class="security-section">
+            <h2>🔒 Account Security</h2>
+            <p>Protect your SwiftMart account from unauthorized access.</p>
+            <button class="toggle-btn">Learn More</button>
+            <div class="toggle-content">
+                <p>We recommend using a **strong password** and enabling **two-factor authentication (2FA)** to enhance security. Avoid sharing your password with anyone.</p>
+            </div>
+        </section>
+
+        <section class="security-section">
+            <h2>🔐 Payment Security</h2>
+            <p>We ensure all transactions are **safe and encrypted**.</p>
+            <button class="toggle-btn">Learn More</button>
+            <div class="toggle-content">
+                <p>SwiftMart uses **SSL encryption** to secure transactions. Payments are processed through **trusted gateways like PayPal, Visa, and MasterCard**.</p>
+            </div>
+        </section>
+
+        <section class="security-section">
+            <h2>📜 Privacy Policy</h2>
+            <p>We value your **privacy** and protect your data.</p>
+            <button class="toggle-btn">Learn More</button>
+            <div class="toggle-content">
+                <p>Your personal information is never shared with third parties. We comply with **GDPR** and **data protection laws** to keep your information safe.</p>
+            </div>
+        </section>
+
+        <section class="security-section">
+            <h2>🛡️ Data Protection</h2>
+            <p>How we keep your data **safe and secure**.</p>
+            <button class="toggle-btn">Learn More</button>
+            <div class="toggle-content">
+                <p>We store user data in **secure servers**, perform **regular security audits**, and ensure **firewall protection** to safeguard customer data.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-form">
+            <h2>Need Help? Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Type your message..." required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+            <p id="successMessage" style="display: none; color: green; text-align: center; margin-top: 10px;">
+                Submitted Successfully! ✅
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SwiftMart. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+
+        // Expand & Collapse Sections
+document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        let content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
+
+// Form Submission & Clear Fields
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page refresh
+
+    // Show success message
+    document.getElementById('successMessage').style.display = 'block';
+
+    // Clear form fields
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('message').value = '';
+});
+
+    </script>
+</body>
+</html>

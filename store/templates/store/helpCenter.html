@@ -1,0 +1,343 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - SwiftMart</title>
+    <link rel="stylesheet" href="store/css/styles.css">
+    <script defer src="script.js"></script>
+
+    <style>
+
+ 
+
+                 /* General Reset for Body */
+         body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+   
+
+/* Help Sections */
+.help-section {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.help-section h2 {
+    color: #333;
+}
+
+.help-section p {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.toggle-btn:hover {
+    background-color: #005a8d;
+}
+
+/* Toggle Content (Hidden by Default) */
+.toggle-content {
+    display: none;
+    background-color: #f3eded;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+
+/* Contact Form */
+#contact-form {
+    width: 50%;  /* Set the form width to half the screen */
+    margin: 20px auto;  /* Center the form */
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Inputs */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+}
+
+form input, 
+form textarea {
+    width: 100%;  /* Make inputs fill the form width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form button:hover {
+    background-color: #005a8d;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    #contact-form {
+        width: 90%;  /* Adjust width for smaller screens */
+    }
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #0077b6;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .toggle-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+   
+
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        
+        
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="orders" class="help-section">
+            <h2>Orders</h2>
+            <p>Track your orders and check order status.</p>
+            <button class="toggle-btn">View More</button>
+            <div class="toggle-content">
+                <p>You can track your orders by visiting the <strong>Orders</strong> page and entering your order ID. You will get real-time updates on your order status, including expected delivery dates and shipping partner details.</p>
+                <p>If your order is delayed, please check for any notifications from us regarding unforeseen shipping issues.</p>
+            </div>
+        </section>
+    
+        <section id="returns" class="help-section">
+            <h2>Returns & Refunds</h2>
+            <p>Return items and get refunds easily.</p>
+            <button class="toggle-btn">View More</button>
+            <div class="toggle-content">
+                <p>To return an item, go to the <strong>Returns</strong> page and initiate a return request. Ensure the item is in its original packaging and meets our return policy criteria.</p>
+                <p>Refunds are processed within 5-7 business days after the returned product passes our quality check.</p>
+                <p>If your refund is delayed, check your bank account or payment method details and contact us for further assistance.</p>
+            </div>
+        </section>
+    
+        <section id="payments" class="help-section">
+            <h2>Payments</h2>
+            <p>Learn about accepted payment methods and troubleshooting.</p>
+            <button class="toggle-btn">View More</button>
+            <div class="toggle-content">
+                <p>We accept various payment methods, including:</p>
+                <ul>
+                    <li>Credit/Debit Cards (Visa, MasterCard, RuPay, etc.)</li>
+                    <li>UPI (Google Pay, PhonePe, Paytm, etc.)</li>
+                    <li>Net Banking (All major banks supported)</li>
+                    <li>Wallets (Amazon Pay, Paytm, Mobikwik, etc.)</li>
+                    <li>Cash on Delivery (COD) available for select locations</li>
+                </ul>
+                <p>If your payment fails, ensure you have sufficient balance, check your internet connection, or try another payment method.</p>
+            </div>
+        </section>
+    
+        <section id="account" class="help-section">
+            <h2>Account Settings</h2>
+            <p>Manage your profile and security settings.</p>
+            <button class="toggle-btn">View More</button>
+            <div class="toggle-content">
+                <p>To update your profile, visit the <strong>Profile</strong> section in your account.</p>
+                <p>You can change your email, phone number, address, and password from the settings menu.</p>
+                <p>For enhanced security, enable two-factor authentication (2FA) in your account settings.</p>
+            </div>
+        </section>
+    
+        <section id="shipping" class="help-section">
+            <h2>Shipping</h2>
+            <p>Know about delivery timelines and shipping charges.</p>
+            <button class="toggle-btn">View More</button>
+            <div class="toggle-content">
+                <p>Orders are generally delivered within 3-5 business days. Remote locations may take up to 7 days.</p>
+                <p>Shipping charges depend on the product and location. Free shipping is available on orders above ₹999.</p>
+                <p>For faster delivery, opt for our <strong>Express Shipping</strong> service at an additional cost.</p>
+            </div>
+        </section>
+    
+        <section id="contact" class="help-section">
+            <h2>Contact Us</h2>
+            <p>Need help? Reach out to our support team.</p>
+            <button class="toggle-btn">View More</button>
+            <div class="toggle-content">
+                <p><strong>Email:</strong> <a href="mailto:support@swiftmart.com">support@swiftmart.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:1800123456">1800-123-456</a> (9 AM - 9 PM, Mon-Sat)</p>
+                <p><strong>Live Chat:</strong> Available on our website from 10 AM - 7 PM.</p>
+            </div>
+        </section>
+    
+        <section id="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+        
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+        
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Type your message..." required></textarea>
+        
+                <button type="submit">Submit</button>
+            </form>
+            <p id="successMessage" style="display: none; color: green; text-align: center; margin-top: 10px;">
+                Submitted Successfully! ✅
+            </p>
+        </section>
+        
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 SwiftMart. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('.toggle-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                let content = button.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
+
+</body>
+</html>

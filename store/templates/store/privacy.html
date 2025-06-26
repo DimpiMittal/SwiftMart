@@ -1,0 +1,261 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Your Store</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+
+    <style>
+       
+
+        /* General Reset for Body */
+         body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+/* Privacy Policy Section */
+.privacy-policy {
+    background: white;
+    padding: 60px 15px;
+    text-align: center;
+}
+
+.policy-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Title Styling */
+.policy-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.title-underline {
+    width: 80px;
+    height: 4px;
+    background: #007bff;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Intro Text */
+.policy-intro {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Policy Sections */
+.policy-content {
+    text-align: left;
+}
+
+.policy-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f4f4f4;
+    border-left: 5px solid #0265cf;
+    border-radius: 5px;
+}
+
+.policy-section h3 {
+    font-size: 22px;
+    color: #131212;
+    margin-bottom: 5px;
+}
+
+.policy-section p {
+    font-size: 16px;
+    color: #282626;
+}
+
+/* Call-to-Action Button */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .policy-container {
+        padding: 20px;
+    }
+
+    .policy-title {
+        font-size: 28px;
+    }
+
+    .policy-section h3 {
+        font-size: 20px;
+    }
+
+    .policy-section p {
+        font-size: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+      <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        
+        
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+    <!-- Privacy Policy Section -->
+    <section class="privacy-policy">
+        <div class="policy-container">
+            <h2 class="policy-title">Privacy Policy</h2>
+            <div class="title-underline"></div>
+
+            <p class="policy-intro">
+                Your privacy is important to us. This Privacy Policy explains how we collect, use, and safeguard your personal information when you use our eCommerce platform.
+            </p>
+
+            <div class="policy-content">
+                <div class="policy-section">
+                    <h3>1. Information We Collect</h3>
+                    <p>We collect personal details such as name, email, phone number, address, and payment information when you register or make a purchase.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3>2. How We Use Your Information</h3>
+                    <p>We use your data to process orders, improve our services, personalize user experience, and send promotional offers.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3>3. Data Protection & Security</h3>
+                    <p>We implement security measures like SSL encryption and secure payment gateways to protect your data.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3>4. Third-Party Services</h3>
+                    <p>We may share your information with trusted third-party partners (such as payment processors and delivery services) to facilitate transactions.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3>5. Your Rights & Choices</h3>
+                    <p>You can access, modify, or delete your personal data anytime. You can also opt out of promotional emails.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3>6. Updates to This Policy</h3>
+                    <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+                </div>
+            </div>
+
+            <a href="#" class="btn">Read Full Policy</a>
+        </div>
+    </section>
+
+</body>
+</html>  

@@ -1,0 +1,263 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Policy</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+    <style>
+ 
+  /* General Reset for Body */
+  body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 90%;  /* Instead of a fixed pixel value, use percentage */
+    width: 70vw;     /* Ensures it covers most of the viewport */
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+}
+
+h2 {
+    color: #007bff;
+    margin-top: 20px;
+}
+
+/* Shipping Details */
+.shipping-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.shipping-details li {
+    background: #e3f2fd;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.faq {
+    margin-top: 30px;
+}
+
+.faq-item {
+    background: #d9ecff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.faq-item:hover {
+    background: #b3dbff;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 16px;
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    font-size: 14px;
+    border-left: 4px solid #007bff;
+    background-color: #f4f9ff;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.icon {
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        
+        
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <h1>Shipping Policy</h1>
+        <p>At <strong>SwiftMart</strong>, we strive to deliver your orders as quickly and efficiently as possible. Below are the details of our shipping policy.</p>
+
+        <!-- Shipping Details -->
+        <section class="shipping-details">
+            <h2>📦 Shipping Information</h2>
+            <ul>
+                <li><strong>Processing Time:</strong> Orders are processed within 1-2 business days.</li>
+                <li><strong>Shipping Time:</strong> Standard delivery takes 5-7 business days, while express shipping takes 2-3 business days.</li>
+                <li><strong>International Shipping:</strong> Available to select countries. Delivery may take 10-15 business days.</li>
+                <li><strong>Shipping Costs:</strong> Free shipping on orders above $50. Charges vary for international deliveries.</li>
+            </ul>
+        </section>
+
+        <section class="faq">
+            <h2>❓ Frequently Asked Questions</h2>
+        
+            <div class="faq-item">
+                <button class="faq-question">Can I change my shipping address after placing an order? <span class="icon">+</span></button>
+                <p class="faq-answer">Yes, you can modify your shipping address within 12 hours of placing the order. Please contact our support team for assistance.</p>
+            </div>
+        
+            <div class="faq-item">
+                <button class="faq-question">Do you provide tracking details for orders? <span class="icon">+</span></button>
+                <p class="faq-answer">Yes! Once your order is shipped, you will receive a tracking link via email and SMS.</p>
+            </div>
+        
+            <div class="faq-item">
+                <button class="faq-question">What happens if my order is delayed? <span class="icon">+</span></button>
+                <p class="faq-answer">In rare cases, delays may occur due to weather conditions or customs. We will keep you updated via email or SMS.</p>
+            </div>
+        </section>
+
+        
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        const icon = item.querySelector(".icon");
+
+        question.addEventListener("click", function () {
+            // Toggle answer visibility
+            const isOpen = answer.style.display === "block";
+
+            // Close all other answers
+            document.querySelectorAll(".faq-answer").forEach(ans => ans.style.display = "none");
+            document.querySelectorAll(".icon").forEach(ic => ic.textContent = "+");
+
+            // Open or close current answer
+            answer.style.display = isOpen ? "none" : "block";
+            icon.textContent = isOpen ? "+" : "✖";
+        });
+    });
+});
+
+    </script>
+
+</body>
+</html>

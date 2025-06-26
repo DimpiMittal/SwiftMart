@@ -4,9 +4,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Product 
 
+
 # Index view (Homepage)
 def index(request):
-    return render(request, 'store/index.html')
+    products = Product.objects.all()  # Fetch all products from the database
+    return render(request, 'store/index.html', {'products': products})
 
 # Shop page view
 def shop_view(request):
@@ -96,3 +98,37 @@ def product_list(request):
     # Fetching products from all categories
     all_products = WomenProduct.objects.all() | MenProduct.objects.all() | KidsProduct.objects.all() | NewProduct.objects.all() | UtensilsProduct.objects.all()
     return render(request, 'store/product_list.html', {'products': all_products})
+
+
+def refund_page(request):
+    return render(request, 'store/refund.html')
+
+def about(request):
+    return render(request, 'store/about.html')
+
+def faq(request):
+    return render(request, 'store/faq.html')
+
+def privacy(request):
+    return render(request, 'store/privacy.html')
+
+def security(request):
+    return render(request, 'store/security.html')
+
+def service(request):
+    return render(request, 'store/service.html')
+
+def shipping(request):
+    return render(request, 'store/shipping.html')
+
+def contact(request):
+    return render(request, 'store/contact.html')
+
+def helpCenter(request):
+    return render(request, 'store/helpCenter.html')
+
+
+ 
+
+
+

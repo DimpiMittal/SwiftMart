@@ -1,0 +1,258 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return & Refund Policy | SwiftMart</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}"><!-- Link to your external CSS file -->
+    <style>
+         /* General Reset for Body */
+         body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .faq {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #eef;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+        }
+
+        .faq h4 {
+            color: #0056b3;
+            margin-bottom: 5px;
+        }
+
+        .faq p {
+            font-size: 15px;
+            color: #444;
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: #222;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        
+        
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Return & Refund Policy</h2>
+
+        <!-- Return Items Section -->
+        <div class="section">
+            <h3>Return Items You Have Ordered</h3>
+            <p>You can return many items sold on SwiftMart.in. When you return an item, you may see different return options depending on the seller, item, or reason for return.</p>
+            <a  href="{%url 'cart'%}" class="btn">View Orders</a>
+        </div>
+
+        <!-- Manage Returns Section -->
+        <div class="section">
+            <h3>Manage Returns</h3>
+            <p>Print return labels and check the status of your recent returns.</p>
+            <a  class="btn">View Your Returns</a>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+
+            <div class="faq">
+                <h4>1. How long do I have to return an item?</h4>
+                <p>Most items can be returned within 30 days of delivery. However, some products may have different return policies based on the seller.</p>
+            </div>
+
+            <div class="faq">
+                <h4>2. How do I return an item?</h4>
+                <p>Go to 'View Orders', select the item you want to return, and choose the return method. Follow the instructions to complete the process.</p>
+            </div>
+
+            <div class="faq">
+                <h4>3. When will I get my refund?</h4>
+                <p>Refunds are processed within 7–10 business days after the return is received and verified.</p>
+            </div>
+
+            <div class="faq">
+                <h4>4. Can I exchange an item instead of returning it?</h4>
+                <p>Yes, some items are eligible for exchange instead of return. Check the product details for more information.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 B2WorldShopping | <a href="{% url 'index' %}">Home</a> | <a href="{% url 'refund_page' %}">Return & Refund Policy</a></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Services | SwiftMart</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}"> <!-- Link to your external CSS file -->
+
+    <style>
+
+     /* General Reset for Body */
+     body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Terms of Service Section */
+.terms-of-service {
+    background-color: #fafafd;
+    padding: 80px 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.terms-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+    background: #f1efeb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    border-left: 5px solid #2c5bdb;
+    transition: transform 0.3s ease-in-out;
+}
+
+.terms-content:hover {
+    transform: translateY(-5px);
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0051ff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.page-title-dots {
+    width: 80px;
+    height: 4px;
+    background: #0037ff;
+    margin: 12px auto;
+    border-radius: 2px;
+}
+
+.terms-list {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.terms-list li {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(120, 149, 231, 0.1);
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out;
+}
+
+.terms-list li:hover {
+    background: rgba(0, 119, 255, 0.2);
+}
+
+.terms-list li::before {
+    content: '\2713';
+    color: #00bfff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 14px 24px;
+    background: #004cff;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 25px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(255, 153, 0, 0.3);
+}
+
+.btn:hover {
+    background: #e68a00;
+    transform: scale(1.07);
+    box-shadow: 0 6px 12px rgba(255, 153, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terms-content {
+        padding: 30px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    
+
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        
+        
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+
+    <section class="terms-of-service">
+        <div class="container">
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-10">
+                    <div class="terms-content">
+                        <p>Welcome to <strong>B2WorldShopping</strong>! These Terms of Service govern your use of our website, <a href="https://www.SwiftMart.com">www.b2worldshopping.com</a>. By accessing or using our platform, you agree to comply with these terms. If you do not agree, please do not use our services.</p>
+    
+                        <ul class="terms-list">
+                            <li><strong>1. Account Registration</strong>
+                                <p>To access certain features, you may need to create an account. You are responsible for keeping your login credentials secure and ensuring your account information is accurate.</p>
+                            </li>
+    
+                            <li><strong>2. Orders & Payments</strong>
+                                <p>By placing an order, you agree to provide accurate payment details. We use secure third-party payment gateways to process transactions.</p>
+                            </li>
+    
+                            <li><strong>3. Shipping & Delivery</strong>
+                                <p>Delivery times may vary based on your location and chosen shipping method. Any delays due to customs or unforeseen circumstances are not within our control.</p>
+                            </li>
+    
+                            <li><strong>4. Returns & Refunds</strong>
+                                <p>We offer a hassle-free return policy. Items must be returned in their original condition within <strong>7 days</strong> of delivery. Refunds will be processed after inspection.</p>
+                            </li>
+    
+                            <li><strong>5. User Conduct</strong>
+                                <p>You agree not to misuse our website, engage in fraudulent activities, or violate any laws while using our services.</p>
+                            </li>
+    
+                            <li><strong>6. Privacy & Security</strong>
+                                <p>Your personal data is handled securely in compliance with our <a href="privacy-policy.html">Privacy Policy</a>. We do not sell or share your information with unauthorized third parties.</p>
+                            </li>
+    
+                            <li><strong>7. Modifications to Terms</strong>
+                                <p>We reserve the right to update these terms. Continued use of our website after changes implies your acceptance of the updated terms.</p>
+                            </li>
+    
+                            <li><strong>8. Contact Us</strong>
+                                <p>If you have any questions, feel free to reach out at <a href="mailto:support@SwiftMart.com">support@b2worldshopping.com</a>.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

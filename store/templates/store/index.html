@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Project</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
 
     <style>
          /* General Reset for Body */
@@ -607,6 +607,7 @@ footer {
 }
 
 
+
     </style>
 </head>
 <body>
@@ -665,10 +666,11 @@ footer {
     </div>
 </div>
 
+</main>
 
 
-    </main>
 
+ 
 
     <!-- Categories Section -->
 <div class="categories-section">
@@ -922,10 +924,8 @@ footer {
         <div class="footer-section">
             <h3>About SwiftMart</h3>
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
             </ul>
         </div>
 
@@ -933,10 +933,10 @@ footer {
         <div class="footer-section">
             <h3>Customer Service</h3>
             <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Returns & Refunds</a></li>
-                <li><a href="#">Shipping Policy</a></li>
-                <li><a href="#">Help Center</a></li>
+                <li><a href="{% url 'faq' %}">FAQ</a></li>
+                <li><a href="{% url 'refund_page' %}">Returns & Refunds</a></li>
+                <li><a href="{% url 'shipping' %}">Shipping Policy</a></li>
+                <li><a href="{% url 'helpCenter' %}">Help Center</a></li>
             </ul>
         </div>
 
@@ -944,9 +944,9 @@ footer {
         <div class="footer-section">
             <h3>Policies</h3>
             <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Security</a></li>
+                <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                <li><a href="{% url 'service' %}">Terms of Service</a></li>
+                <li><a href="{% url 'security' %}">Security</a></li>
             </ul>
         </div>
 

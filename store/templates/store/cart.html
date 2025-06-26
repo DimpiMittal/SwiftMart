@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your stylesheet -->
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}"> <!-- Link to your stylesheet -->
     <style>
         
 
@@ -82,135 +82,144 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* ======= Main Wrapper for Cart & Saved Sections ======= */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 50px; /* Increased gap for better spacing */
+}
 
- /* Main Wrapper */
- .cart-orders-wrapper {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            max-width: 1200px;
-            margin-top: 20px;
-            gap: 30px;
-        }
+/* ======= Shopping Cart & Saved for Later Sections ======= */
+.cart-container, 
+.saved-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
 
-        /* Cart and Orders Containers */
-        .cart-container, .orders-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            width: 100%; /* Each takes half of the available space */
-        }
+/* ======= Section Titles ======= */
+h2 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #333;
+}
 
-        /* Cart Items Grid */
-        .cart-items {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 products per row */
-            gap: 15px;
-            padding: 15px 0;
-        }
+/* ======= Cart and Saved Items Grid ======= */
+.cart-items, 
+.saved-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 15px 0;
+}
 
-        /* Individual Cart Item */
-        .cart-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-            width: 100%; 
-        }
+/* ======= Individual Item Cards ======= */
+.cart-item, 
+.saved-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+}
 
-        .cart-item:hover {
-            transform: scale(1.05);
-        }
+/* ======= Product Image ======= */
+.cart-item img, 
+.saved-item img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
 
-        /* Product Image */
-        .cart-item img {
-            width: 100px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 5px;
-        }
+/* ======= Product Details ======= */
+.cart-details p, 
+.saved-details p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #444;
+}
 
-        /* Buttons */
-        .btn {
-            background-color: #2868a7;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            width: 30%;
-            font-size: 1em;
-        }
+.item-price {
+    font-size: 1.1em;
+    color: #e67e22;
+    font-weight: bold;
+}
 
-        .btn:hover {
-            background-color: #2a6c96;
-        }
+/* ======= General Button Styling ======= */
+.btn {
+    padding: 5px 12px; /* Reduced padding for a smaller button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em; /* Slightly smaller text */
+    width: auto; /* Ensures consistent size */
+    min-width: 120px; /* Prevents overly small buttons */
+    transition: background-color 0.3s ease;
+}
 
-        /* Orders List */
-        .orders-list {
-            list-style: none;
-            padding: 0;
-        }
+/* ======= Place Order Button (Main Action) ======= */
+.place-order-btn {
+    background-color: #1a7fe4; 
+    color: white;
+}
 
-        .orders-list li {
-            background: #f8f8f8;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
+.place-order-btn:hover {
+    background-color: #08507c;
+}
 
-        /* Modals */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
+/* ======= Save for Later & Remove Buttons (Light Grey) ======= */
+.save-for-later, 
+.remove-item-btn,
+.move-to-cart, 
+.remove-saved-item {
+    background-color: #d3d3d3; /* Light Grey */
+    color: #333; /* Dark Grey for contrast */
+}
 
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 60%;
-        }
+.save-for-later:hover, 
+.remove-item-btn:hover,
+.move-to-cart:hover, 
+.remove-saved-item:hover {
+    background-color: #b0b0b0; /* Slightly darker grey on hover */
+}
 
-        .close-btn {
-            font-size: 24px;
-            cursor: pointer;
-            float: right;
-        }
+/* ======= Responsive Design ======= */
+@media (max-width: 1024px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .cart-items {
-                grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
-            }
-        }
+    .cart-container, 
+    .saved-container {
+        width: 100%;
+    }
 
-        @media (max-width: 768px) {
-            .cart-orders-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
+    .cart-items, 
+    .saved-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-            .cart-container, .orders-container {
-                width: 100%;
-            }
+@media (max-width: 768px) {
+    .cart-items, 
+    .saved-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
 
-            .cart-items {
-                grid-template-columns: repeat(1, 1fr); /* 1 per row on small screens */
-            }
-        }
+    .btn {
+        width: 100%;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -236,8 +245,8 @@ nav a:hover {
         </nav>
     </header>
     
-  <!-- Wrapper to hold both cart and orders side by side -->
-  <div class="cart-orders-wrapper">
+ <!-- Wrapper to hold both cart and orders side by side -->
+ <div class="cart-orders-wrapper">
     <!-- Shopping Cart Section -->
     <div class="cart-container">
         <h2>Your Shopping Cart</h2>
@@ -245,68 +254,121 @@ nav a:hover {
         <div class="cart-items" id="cart-product-list"></div>
         <button id="place-order-btn" class="btn">Place Order</button>
     </div>
-
-
-<!-- Modals -->
-<div id="viewAllModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>All Products in Cart</h2>
-        <div id="all-products-container"></div>
-    </div>
 </div>
-
-<div id="viewOrderModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Order Details</h2>
-        <div id="order-details"></div>
+ 
+<div class="Cart-Saved-Wrapper">
+    <!-- Saved for Later Section -->
+    <div class="saved-container">
+        <h2>Saved for Later</h2>
+        <div class="saved-items" id="saved-product-list"></div>
     </div>
+
 </div>
 
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        let savedItems = JSON.parse(localStorage.getItem("savedItems")) || [];
         const cartProductList = document.getElementById("cart-product-list");
+        const savedProductList = document.getElementById("saved-product-list");
         const cartSummary = document.getElementById("cart-summary");
         const placeOrderBtn = document.getElementById("place-order-btn");
     
         function updateCartUI() {
             cartProductList.innerHTML = "";
+            savedProductList.innerHTML = "";
     
-            if (cartItems.length === 0) {
-                cartSummary.innerHTML = `<p>Your cart is empty.</p>`;
-                return;
-            }
+            cartSummary.innerHTML = cartItems.length === 0 
+                ? `<p>Your cart is empty.</p>` 
+                : `<p>Total Items: ${cartItems.length}</p>`;
     
-            cartSummary.innerHTML = `<p>Total Items: ${cartItems.length}</p>`;
             cartItems.forEach((item, index) => {
+                let itemName = item.name || "No Name";
+                let itemImg = item.img || "{% static 'store/images/default.png' %}";
+                let itemMrp = item.mrp && item.mrp !== "N/A" ? `<s>${item.mrp}</s>` : "";
+                let itemPrice = item.price || "N/A";
+    
                 let itemDiv = document.createElement("div");
                 itemDiv.classList.add("cart-item");
                 itemDiv.innerHTML = `
-                    <img src="${item.img}" alt="${item.name}" class="cart-img">
+                    <img src="${itemImg}" alt="${itemName}" class="cart-img">
                     <div class="cart-details">
-                        <p>${item.name}</p>
-                        <p class="item-price">$${item.price}</p>
+                        <p><strong>${itemName}</strong></p>
+                        <p class="item-price">${itemMrp} <strong>${itemPrice}</strong></p>
+                        <div class="cart-actions">
+                            <button class="btn save-for-later" data-index="${index}">Save for Later</button>
+                            <button class="btn remove-item-btn" data-index="${index}">Remove</button>
+                        </div>
                     </div>
-                    <button class="btn remove-item-btn" data-index="${index}">Remove</button>
                 `;
                 cartProductList.appendChild(itemDiv);
             });
     
-            // Attach event listeners to remove buttons
-            document.querySelectorAll(".remove-item-btn").forEach(button => {
-                button.addEventListener("click", function () {
-                    let index = this.getAttribute("data-index");
-                    removeFromCart(index);
-                });
+            savedItems.forEach((item, index) => {
+                let itemName = item.name || "No Name";
+                let itemImg = item.img || "{% static 'store/images/default.png' %}";
+                let itemMrp = item.mrp && item.mrp !== "N/A" ? `<s>${item.mrp}</s>` : "";
+                let itemPrice = item.price || "N/A";
+    
+                let itemDiv = document.createElement("div");
+                itemDiv.classList.add("saved-item");
+                itemDiv.innerHTML = `
+                    <img src="${itemImg}" alt="${itemName}" class="cart-img">
+                    <div class="cart-details">
+                        <p><strong>${itemName}</strong></p>
+                        <p class="item-price">${itemMrp} <strong>${itemPrice}</strong></p>
+                        <div class="cart-actions">
+                            <button class="btn move-to-cart" data-index="${index}">Move to Cart</button>
+                            <button class="btn remove-saved-item" data-index="${index}">Remove</button>
+                        </div>
+                    </div>
+                `;
+                savedProductList.appendChild(itemDiv);
             });
         }
+    
+        cartProductList.addEventListener("click", function (event) {
+            if (event.target.classList.contains("remove-item-btn")) {
+                removeFromCart(event.target.getAttribute("data-index"));
+            } else if (event.target.classList.contains("save-for-later")) {
+                saveForLater(event.target.getAttribute("data-index"));
+            }
+        });
+    
+        savedProductList.addEventListener("click", function (event) {
+            if (event.target.classList.contains("move-to-cart")) {
+                moveToCart(event.target.getAttribute("data-index"));
+            } else if (event.target.classList.contains("remove-saved-item")) {
+                removeFromSaved(event.target.getAttribute("data-index"));
+            }
+        });
     
         function removeFromCart(index) {
             cartItems.splice(index, 1);
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            updateCartUI();
+        }
+    
+        function saveForLater(index) {
+            let savedItem = cartItems.splice(index, 1)[0];
+            savedItems.push(savedItem);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            localStorage.setItem("savedItems", JSON.stringify(savedItems));
+            updateCartUI();
+        }
+    
+        function moveToCart(index) {
+            let cartItem = savedItems.splice(index, 1)[0];
+            cartItems.push(cartItem);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            localStorage.setItem("savedItems", JSON.stringify(savedItems));
+            updateCartUI();
+        }
+    
+        function removeFromSaved(index) {
+            savedItems.splice(index, 1);
+            localStorage.setItem("savedItems", JSON.stringify(savedItems));
             updateCartUI();
         }
     
@@ -315,19 +377,17 @@ nav a:hover {
                 alert("Your cart is empty!");
                 return;
             }
-    
             alert("Order placed successfully!");
-            localStorage.removeItem("cartItems"); // Clear cart
+            localStorage.removeItem("cartItems");
             cartItems = [];
             updateCartUI();
         });
     
-        updateCartUI(); // Load cart items on page load
+        updateCartUI();
     });
     </script>
-    
-    
-    
-       
+
+
+
 </body>
 </html>

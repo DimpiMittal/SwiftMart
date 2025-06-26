@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SwiftMart</title>
+    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+
+     <style>
+
+ /* General Reset for Body */
+ body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between brand and nav items */
+            align-items: center;
+            background-color: black;
+            padding: 15px 35px;  /* Add some padding for spacing */
+            color: white;
+        }
+        
+        .brand-name {
+            font-size: 4em;
+            font-weight: bold;
+            color: rgb(231, 106, 231);  /* Purple color for SwiftMart */
+            animation: slideIn 1s ease-out;  /* Animation for SwiftMart */
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    gap: 20px;  /* Space out the items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between text and icons */
+}
+
+.nav-icon {
+    width: 70px;  /* Small icon size */
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-bar {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ====== About Us Section Styling ====== */
+.about-us {
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* Blue gradient */
+    color: white;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* About Container */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 90%;
+    gap: 50px;
+}
+
+/* About Content */
+.about-content {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.about-content h2 span {
+    color: #ffcc00; /* Highlighted Brand Name */
+}
+
+.about-content p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.explore-btn {
+    display: inline-block;
+    background-color: #a79f28; /* Blue color */
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.explore-btn:hover {
+    background-color: #767b1f; /* Darker shade on hover */
+    transform: scale(1.05);
+}
+
+.explore-btn:active {
+    transform: scale(0.95);
+}
+
+/* About Page Image Container */
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+}
+
+/* About Page Image Styling */
+.Shopping-image {
+    width: 100%; /* Makes it responsive */
+    max-width: 600px; /* Increases size */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    object-fit: cover;
+}
+
+/* Hover Effect */
+.Shopping-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensuring it works on all screen sizes */
+@media (max-width: 768px) {
+    .Shopping-image {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+}
+
+
+     </style>
+
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">
+            SwiftMart
+        </div>
+        
+        
+        {% load static %}
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'shop' %}">
+                <img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"> 
+            </a>
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"> 
+            </a>
+            <a href="#">
+                <input type="text" class="search-bar" placeholder="Type here to search">
+            </a>
+            <a href="{% url 'profile' %}">
+                <img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"> 
+            </a>
+        </nav>
+    </header>
+
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="about-container">
+            <!-- Left Side: Text Content -->
+            <div class="about-content">
+                <h2>Welcome to <span>SwiftMart</span></h2>
+                <p>
+                    At <strong>SwiftMart</strong>, we bring you the ultimate online shopping experience with a wide range of products, unbeatable deals, and a seamless buying process. 
+                    Whether you're looking for fashion, electronics, home essentials, or more, we’ve got you covered!
+                </p>
+                <p>
+                    Our mission is to provide <b>top-quality products</b>, <b>fast delivery</b>, and <b>exceptional customer service</b>. We partner with top brands and trusted sellers to ensure you get the best every time.
+                </p>
+                <p>
+                    Join millions of happy customers who trust <b>SwiftMart</b> for all their shopping needs. Experience convenience like never before!
+                </p>
+                <a href="{% url 'shop' %}" class="explore-btn">Explore Now</a>
+
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="about-image">
+                <img src="{% static 'store/images/shoppingImage.jpeg' %}" alt="Shopping" class="Shopping-image"> 
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

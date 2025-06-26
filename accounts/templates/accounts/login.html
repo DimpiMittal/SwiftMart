@@ -2,271 +2,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <title>Login | SwiftMart</title>
+  <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
+    header {
+      background-color: black;
+      color: white;
+      padding: 15px 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: black;
-            padding: 15px 35px;
-            color: white;
-        }
+    .brand-name {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: rgb(231, 106, 231);
+    }
 
-        .brand-name {
-            font-size: 4em;
-            font-weight: bold;
-            color: rgb(231, 106, 231);
-        }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
 
-        nav {
-            display: flex;
-            gap: 20px;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            display: flex;
-            align-items: center;
-        }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .nav-icon {
-            width: 70px;
-            height: 50px;
-            object-fit: cover;
-        }
+    .form-container {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+      display: none;
+    }
 
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    .form-container.active {
+      display: block;
+    }
 
-        /* Login and OTP container */
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-        /* Login, OTP, and Register container */
-.login-container {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-    position: absolute;
-    transition: 0.5s ease-in-out;
-}
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1em;
+      margin-top: 10px;
+      cursor: pointer;
+    }
 
-/* Hide inactive sections */
-#otp-box, #register-box {
-    transform: scale(0);
-    opacity: 0;
-    pointer-events: none;
-}
+    button:hover {
+      background: #45a049;
+    }
 
-.active {
-    transform: scale(1);
-    opacity: 1;
-    pointer-events: all;
-}
+    a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
 
-/* Input fields */
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-/* Forgot password & Register link */
-a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
+    #countdown {
+      color: red;
+      margin-top: 10px;
+    }
 
-a:hover {
-    text-decoration: underline;
-}
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 15px;
+    }
 
-/* Buttons */
-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1.1em;
-    color: white;
-    background: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #45a049;
-}
-
-/* OTP inputs */
-.otp-input {
-    width: 45px;
-    height: 45px;
-    text-align: center;
-    font-size: 1.5em;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Countdown Timer */
-#countdown {
-    margin-top: 10px;
-    color: red;
-}
-    </style>
+    ul li {
+      color: red;
+      font-size: 0.95em;
+    }
+  </style>
 </head>
 
-
 <body>
+  <header>
+    <div class="brand-name">SwiftMart</div>
+    <nav>
+      <a href="{% url 'index' %}">Home</a>
+      <a href="{% url 'shop' %}">Shop</a>
+      <a href="{% url 'cart' %}">Cart</a>
+      <a href="{% url 'profile' %}">Profile</a>
+    </nav>
+  </header>
 
-    <header>
-        <div class="brand-name">SwiftMart</div>
-        <nav>
-            <a href="{% url 'index' %}">Home</a>
-            <a href="{% url 'shop' %}"><img src="{% static 'store/images/shop.png' %}" alt="Shop" class="nav-icon"></a>
-            <a href="{% url 'cart' %}"><img src="{% static 'store/images/cart.png' %}" alt="Cart" class="nav-icon"></a>
-            <input type="text" id="search-bar" placeholder="Search">
-            <a href="{% url 'profile' %}"><img src="{% static 'store/images/profile.jpeg' %}" alt="Profile" class="nav-icon"></a>
-        </nav>
-    </header>
-    
-    <main>
-        <!-- Login Form -->
-        <div class="form-container active" id="login-box">
-            <h2>Login</h2>
-            <form id="login-form" method="POST" action="{% url 'login' %}">
-                {% csrf_token %}
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <input type="password" name="password" placeholder="Enter your password" required>
-                <a href="#" id="forgot-password">Forgot Password?</a>
-                <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <a href="#" id="register-link">Register here</a></p>
-        </div>
+  <main>
+    <!-- Login Form -->
+    <div class="form-container active" id="login-box">
+      <h2>Login</h2>
 
-        <!-- OTP Verification -->
-        <div class="form-container" id="otp-box">
-            <h2>Verify OTP</h2>
-            <p>A verification code has been sent to your email</p>
-            <form id="otp-form" method="POST" action="{% url 'verify_otp' %}">
-                {% csrf_token %}
-                <input type="text" name="otp" maxlength="6" placeholder="Enter OTP" required>
-                <p id="countdown">Resend OTP in <span id="timer">50</span>s</p>
-                <button type="submit">Verify OTP</button>
-            </form>
-            <p>Go back to <a href="#" id="login-link">Login</a></p>
-        </div>
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
-        <!-- Registration Form -->
-        <div class="form-container" id="register-box">
-            <h2>Register</h2>
-            <form id="register-form" method="POST" action="{% url 'register' %}">
-                {% csrf_token %}
-                <input type="text" name="username" placeholder="Enter your name" required>
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <input type="password" name="password1" placeholder="Create a password" required>
-                <input type="password" name="password2" placeholder="Confirm password" required>
-                <button type="submit">Register</button>
-            </form>
-            <p>Already have an account? <a href="#" id="login-link-2">Login here</a></p>
-        </div>
-    </main>
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <a href="#" id="forgot-password">Forgot Password?</a>
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="register-link">Register here</a></p>
+    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let loginBox = document.getElementById("login-box");
-            let otpBox = document.getElementById("otp-box");
-            let registerBox = document.getElementById("register-box");
-            let forgotPassword = document.getElementById("forgot-password");
-            let registerLink = document.getElementById("register-link");
-            let loginLink = document.getElementById("login-link");
-            let loginLink2 = document.getElementById("login-link-2");
-            let timerDisplay = document.getElementById("timer");
+    <!-- OTP Box -->
+    <div class="form-container" id="otp-box">
+      <h2>Verify OTP</h2>
+      <p>A verification code has been sent to your email</p>
+      <form method="POST" action="{% url 'verify_otp' %}">
+        {% csrf_token %}
+        <input type="text" name="otp" maxlength="6" placeholder="Enter OTP" required>
+        <p id="countdown">Resend OTP in <span id="timer">50</span>s</p>
+        <button type="submit">Verify OTP</button>
+      </form>
+      <p>Go back to <a href="#" id="login-link">Login</a></p>
+    </div>
 
-            function switchForm(hideBox, showBox) {
-                hideBox.classList.remove("active");
-                showBox.classList.add("active");
-            }
+    <!-- Register Box -->
+    <div class="form-container" id="register-box">
+      <h2>Register</h2>
+      <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter your name" required>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="password1" placeholder="Create a password" required>
+        <input type="password" name="password2" placeholder="Confirm password" required>
+        <button type="submit">Register</button>
+      </form>
+      <p>Already have an account? <a href="#" id="login-link-2">Login here</a></p>
+    </div>
+  </main>
 
-            registerLink.addEventListener("click", function (e) {
-                e.preventDefault();
-                switchForm(loginBox, registerBox);
-            });
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const loginBox = document.getElementById("login-box");
+      const otpBox = document.getElementById("otp-box");
+      const registerBox = document.getElementById("register-box");
 
-            loginLink.addEventListener("click", function (e) {
-                e.preventDefault();
-                switchForm(otpBox, loginBox);
-            });
+      const forgotPassword = document.getElementById("forgot-password");
+      const registerLink = document.getElementById("register-link");
+      const loginLink = document.getElementById("login-link");
+      const loginLink2 = document.getElementById("login-link-2");
+      const timerDisplay = document.getElementById("timer");
 
-            loginLink2.addEventListener("click", function (e) {
-                e.preventDefault();
-                switchForm(registerBox, loginBox);
-            });
+      function switchForm(showBox) {
+        [loginBox, otpBox, registerBox].forEach(box => box.classList.remove("active"));
+        showBox.classList.add("active");
+      }
 
-            forgotPassword.addEventListener("click", function (e) {
-                e.preventDefault();
-                switchForm(loginBox, otpBox);
-                startOtpTimer();
-            });
+      registerLink.addEventListener("click", e => {
+        e.preventDefault();
+        switchForm(registerBox);
+      });
 
-            function startOtpTimer() {
-                let timeLeft = 50;
-                let timer = setInterval(function () {
-                    if (timeLeft <= 0) {
-                        clearInterval(timer);
-                        timerDisplay.innerText = "Resend";
-                        timerDisplay.style.cursor = "pointer";
-                        timerDisplay.addEventListener("click", function () {
-                            startOtpTimer();
-                            timerDisplay.innerText = "50";
-                            timerDisplay.style.cursor = "default";
-                        }, { once: true });
-                    } else {
-                        timerDisplay.innerText = timeLeft;
-                    }
-                    timeLeft -= 1;
-                }, 1000);
-            }
-        });
-    </script>
-    
-    <style>
-        .form-container { display: none; }
-        .form-container.active { display: block; }
-        .otp-inputs input { width: 40px; text-align: center; }
-    </style>
+      loginLink.addEventListener("click", e => {
+        e.preventDefault();
+        switchForm(loginBox);
+      });
+
+      loginLink2.addEventListener("click", e => {
+        e.preventDefault();
+        switchForm(loginBox);
+      });
+
+      forgotPassword.addEventListener("click", e => {
+        e.preventDefault();
+        switchForm(otpBox);
+        startOtpTimer();
+      });
+
+      function startOtpTimer() {
+        let timeLeft = 50;
+        timerDisplay.innerText = timeLeft;
+        let timer = setInterval(() => {
+          if (timeLeft <= 0) {
+            clearInterval(timer);
+            timerDisplay.innerText = "Resend";
+            timerDisplay.style.cursor = "pointer";
+            timerDisplay.addEventListener("click", () => {
+              startOtpTimer();
+              timerDisplay.innerText = "50";
+              timerDisplay.style.cursor = "default";
+            }, { once: true });
+          } else {
+            timerDisplay.innerText = timeLeft;
+          }
+          timeLeft -= 1;
+        }, 1000);
+      }
+    });
+  </script>
 </body>
 </html>
