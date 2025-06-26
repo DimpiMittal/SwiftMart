@@ -670,6 +670,24 @@ footer {
 
 
 
+<!-- 
+{% for product in products %}
+    <div class="product-card">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+        <div class="product-details">
+            <p class="product-description">{{ product.name }}</p>
+            <p class="product-price">₹{{ product.price }}</p>
+            <form method="POST" action="{% url 'add_to_cart' product.id %}">
+                {% csrf_token %}
+                <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+{% endfor %}
+-->
+
+
+
  
 
     <!-- Categories Section -->
